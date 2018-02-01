@@ -26,6 +26,9 @@ echo "wait" >> ~/azuredulous/azuredulous.sh
 echo "source ~/azuredulous/creds.sh" >> ~/azuredulous/azuredulous.sh
 echo "wait" >> ~/azuredulous/azuredulous.sh
 echo "rm -rf ~/azuredulous/creds.sh" >> ~/azuredulous/azuredulous.sh
+echo "clear" >> ~/azuredulous/azuredulous.sh
+echo "***  CREDENTIALS SUCCESSFULLY LOADED  ***" >> ~/azuredulous/azuredulous.sh
+echo "" >> ~/azuredulous/azuredulous.sh
 
 # Create creds script file
 touch ~/azuredulous/creds.sh
@@ -96,4 +99,4 @@ echo "" >> ~/azuredulous/uninstall.sh
 echo 'echo "(Removed Azuredulous folder)"' >> ~/azuredulous/uninstall.sh
 echo 'echo "(Removed GPG settings file)"' >> ~/azuredulous/uninstall.sh
 echo 'echo "(Removed alias from .bash_profile)"' >> ~/azuredulous/uninstall.sh
-echo "" > >> ~/azuredulous/uninstall.sh
+echo "" >> ~/azuredulous/uninstall.sh

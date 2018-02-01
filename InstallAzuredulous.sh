@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Add path of azuredulous to environment variables
-echo 'alias azuredulous=". ~/azuredulous/azuredulous.sh"' >> .bash_profile
-. .bash_profile
+echo 'alias azuredulous=". ~/azuredulous/azuredulous.sh"' >> ~/.bash_profile
+. ~/.bash_profile
 
 # Add configuration settings for GPG to enable password everytime and restart service
 touch ~/.gnupg/gpg-agent.conf

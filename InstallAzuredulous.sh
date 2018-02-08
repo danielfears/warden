@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Add path of azuredulous to environment variables
-echo 'alias azuredulous=". ~/azuredulous/azuredulous.sh"' >> .bash_profile
-. .bash_profile
+echo 'alias azuredulous=". ~/azuredulous/azuredulous.sh"' >> ~/.bash_profile
+. ~/.bash_profile
 
 # Add configuration settings for GPG to enable password everytime and restart service
 touch ~/.gnupg/gpg-agent.conf
@@ -26,6 +26,9 @@ echo "wait" >> ~/azuredulous/azuredulous.sh
 echo "source ~/azuredulous/creds.sh" >> ~/azuredulous/azuredulous.sh
 echo "wait" >> ~/azuredulous/azuredulous.sh
 echo "rm -rf ~/azuredulous/creds.sh" >> ~/azuredulous/azuredulous.sh
+echo "clear" >> ~/azuredulous/azuredulous.sh
+echo "***  AZURE CREDENTIALS HAVE BEEN SUCCESSFULLY LOADED  ***" >> ~/azuredulous/azuredulous.sh
+echo "" >> ~/azuredulous/azuredulous.sh
 
 # Create creds script file
 touch ~/azuredulous/creds.sh

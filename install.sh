@@ -92,7 +92,6 @@ echo 'fi' >> ~/opt/warden/warden-purge.sh
 
 # Installation message & clean up
 clear
-echo ''
 echo '__        __            _'
 echo '\ \      / /_ _ _ __ __| | ___ _ __'
 echo ' \ \ /\ / / _` | __/  _\ |/ _ \ \ _ \'

@@ -70,16 +70,25 @@ echo 'echo ""' >> ~/opt/warden/warden-add.sh
 
 # Populate purge script
 echo '#!/bin/bash' >> ~/opt/warden/warden-purge.sh
-echo 'rm -rf ~/opt/warden' >> ~/opt/warden/warden-purge.sh
-echo "sed -i -e '/warden/d' ~/.bash_profile" >> ~/opt/warden/warden-purge.sh
-echo 'rm -rf ~/.gnupg/gpg-agent.conf' >> ~/opt/warden/warden-purge.sh
 echo 'clear' >> ~/opt/warden/warden-purge.sh
-echo 'echo "(Removed warden folder & credentials)"' >> ~/opt/warden/warden-purge.sh
-echo 'echo "(Removed GPG settings file)"' >> ~/opt/warden/warden-purge.sh
-echo 'echo "(Removed alias entries from .bash_profile)"' >> ~/opt/warden/warden-purge.sh
+echo 'echo "*** WARNING - UNINSTALLING WARDEN WILL REMOVE ALL SAVED CREDENTIALS"' >> ~/opt/warden/warden-purge.sh
 echo 'echo ""' >> ~/opt/warden/warden-purge.sh
-echo 'echo "***  Warden has been uninstalled and all credentials removed  ***"' >> ~/opt/warden/warden-purge.sh
-echo 'echo ""' >> ~/opt/warden/warden-purge.sh
+echo 'echo "Do you want to continue? [n/y]: "' >> ~/opt/warden/warden-purge.sh
+echo 'read warning' >> ~/opt/warden/warden-purge.sh
+echo 'if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then' >> ~/opt/warden/warden-purge.sh
+echo '    rm -rf ~/opt/warden' >> ~/opt/warden/warden-purge.sh
+echo "    sed -i -e '/warden/d' ~/.bash_profile" >> ~/opt/warden/warden-purge.sh
+echo '    rm -rf ~/.gnupg/gpg-agent.conf' >> ~/opt/warden/warden-purge.sh
+echo '    clear' >> ~/opt/warden/warden-purge.sh
+echo '    echo "(Removed warden folder & credentials)"' >> ~/opt/warden/warden-purge.sh
+echo '    echo "(Removed GPG settings file)"' >> ~/opt/warden/warden-purge.sh
+echo '    echo "(Removed alias entries from .bash_profile)"' >> ~/opt/warden/warden-purge.sh
+echo '    echo ""' >> ~/opt/warden/warden-purge.sh
+echo '    echo "***  Warden has been uninstalled and all credentials removed  ***"' >> ~/opt/warden/warden-purge.sh
+echo '    echo ""' >> ~/opt/warden/warden-purge.sh
+echo 'else' >> ~/opt/warden/warden-purge.sh
+echo '    echo "Did not remove"' >> ~/opt/warden/warden-purge.sh
+echo 'fi' >> ~/opt/warden/warden-purge.sh
 
 # Installation message & clean up
 clear

@@ -33,7 +33,7 @@ echo 'source ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-load.sh
 echo 'wait' >> ~/opt/warden/warden-load.sh
 echo 'rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-load.sh
 echo 'clear' >> ~/opt/warden/warden-load.sh
-echo 'echo "***  AZURE CREDENTIALS SUCCESSFULLY LOADED  ***"' >> ~/opt/warden/warden-load.sh
+echo 'echo "*** Azure credentials successfully loaded ***"' >> ~/opt/warden/warden-load.sh
 echo 'echo ""' >> ~/opt/warden/warden-load.sh
 
 # Populate warden-add.sh
@@ -43,7 +43,7 @@ echo 'read username' >> ~/opt/warden/warden-add.sh
 echo 'touch ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
 echo 'chmod 777 ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
 echo 'clear' >> ~/opt/warden/warden-add.sh
-echo 'echo "***  INPUT AZURE ENVIRONMENT CREDENTIALS  ***"' >> ~/opt/warden/warden-add.sh
+echo 'echo "*** Enter Azure environment credentials ***"' >> ~/opt/warden/warden-add.sh
 echo 'echo ""' >> ~/opt/warden/warden-add.sh
 echo 'echo -n "Enter your ARM_SUBSCRIPTION_ID: "' >> ~/opt/warden/warden-add.sh
 echo 'read subid' >> ~/opt/warden/warden-add.sh
@@ -65,7 +65,7 @@ echo 'gpg --output ~/opt/warden/$username-creds.sh.gpg --symmetric ~/opt/warden/
 echo 'wait' >> ~/opt/warden/warden-add.sh
 echo 'rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
 echo 'echo "clear"' >> ~/opt/warden/warden-add.sh
-echo 'echo "*** Credentials successfully stored and encrypted ***"' >> ~/opt/warden/warden-add.sh
+echo 'echo "*** Credentials for $username successfully stored and encrypted ***"' >> ~/opt/warden/warden-add.sh
 echo 'echo ""' >> ~/opt/warden/warden-add.sh
 
 # Populate purge script
@@ -96,7 +96,7 @@ echo 'fi' >> ~/opt/warden/warden-purge.sh
 clear
 echo '__        __            _'
 echo '\ \      / /_ _ _ __ __| | ___ _ __'
-echo ' \ \ /\ / / _` | __/  _\ |/ _ \ \ _ \'
+echo ' \ \ /\ / / _` | __/  _  |/ _ \  _  \'
 echo '  \ V  V / (_| | | | (_| |  __/ | | |'
 echo '   \_/\_/ \__,_|_|  \__,_|\___|_| |_|'
 echo ''
@@ -108,7 +108,7 @@ clear
 if [[ $deletefile == "Y" || $deletefile == "y" || $deletefile == "yes" ]]; then
         echo '__        __            _'
         echo '\ \      / /_ _ _ __ __| | ___ _ __'
-        echo ' \ \ /\ / / _` | __/  _\ |/ _ \ \ _ \'
+        echo ' \ \ /\ / / _` | __/  _  |/ _ \  _  \'
         echo '  \ V  V / (_| | | | (_| |  __/ | | |'
         echo '   \_/\_/ \__,_|_|  \__,_|\___|_| |_|'
         echo ''
@@ -119,7 +119,7 @@ if [[ $deletefile == "Y" || $deletefile == "y" || $deletefile == "yes" ]]; then
 else
         echo '__        __            _'
         echo '\ \      / /_ _ _ __ __| | ___ _ __'
-        echo ' \ \ /\ / / _` | __/  _\ |/ _ \ \ _ \'
+        echo ' \ \ /\ / / _` | __/  _  |/ _ \  _  \'
         echo '  \ V  V / (_| | | | (_| |  __/ | | |'
         echo '   \_/\_/ \__,_|_|  \__,_|\___|_| |_|'
         echo ''

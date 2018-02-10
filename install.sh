@@ -44,7 +44,7 @@ echo 'read username' >> ~/opt/warden/warden-add.sh
 echo 'touch ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
 echo 'chmod 777 ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
 echo 'clear' >> ~/opt/warden/warden-add.sh
-echo 'echo "*** Enter Azure environment credentials ***"' >> ~/opt/warden/warden-add.sh
+echo 'echo "*** Enter Azure environment credentials for: $username ***"' >> ~/opt/warden/warden-add.sh
 echo 'echo ""' >> ~/opt/warden/warden-add.sh
 echo 'echo -n "Enter your ARM_SUBSCRIPTION_ID: "' >> ~/opt/warden/warden-add.sh
 echo 'read subid' >> ~/opt/warden/warden-add.sh

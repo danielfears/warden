@@ -41,7 +41,7 @@ echo '#!/bin/bash' >> ~/opt/warden/warden-add.sh
 echo 'clear' >> ~/opt/warden/warden-add.sh
 echo 'echo "__        __            _"' >> ~/opt/warden/warden-add.sh
 echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-add.sh
-echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \"' >> ~/opt/warden/warden-add.sh
+echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"' >> ~/opt/warden/warden-add.sh
 echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-add.sh
 echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| add a user"' >> ~/opt/warden/warden-add.sh
 echo 'echo ""' >> ~/opt/warden/warden-add.sh

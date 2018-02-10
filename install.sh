@@ -39,20 +39,26 @@ echo 'echo ""' >> ~/opt/warden/warden-load.sh
 # Populate warden-add.sh
 echo '#!/bin/bash' >> ~/opt/warden/warden-add.sh
 echo 'clear' >> ~/opt/warden/warden-add.sh
+echo 'echo "__        __            _"' >> ~/opt/warden/warden-add.sh
+echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-add.sh
+echo 'echo " \ \ /\ / / _` | __/  _  |/ _ \  _  \"' >> ~/opt/warden/warden-add.sh
+echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-add.sh
+echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| add a user"' >> ~/opt/warden/warden-add.sh
+echo 'echo ""' >> ~/opt/warden/warden-add.sh
 echo 'echo -n "Enter your username: "' >> ~/opt/warden/warden-add.sh
 echo 'read username' >> ~/opt/warden/warden-add.sh
 echo 'touch ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
 echo 'chmod 777 ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-echo 'clear' >> ~/opt/warden/warden-add.sh
-echo 'echo "*** Enter Azure environment credentials for: $username ***"' >> ~/opt/warden/warden-add.sh
 echo 'echo ""' >> ~/opt/warden/warden-add.sh
-echo 'echo -n "Enter your ARM_SUBSCRIPTION_ID: "' >> ~/opt/warden/warden-add.sh
+echo 'echo "Enter Azure environment credentials for: $username"' >> ~/opt/warden/warden-add.sh
+echo 'echo ""' >> ~/opt/warden/warden-add.sh
+echo 'echo -n "ARM_SUBSCRIPTION_ID: "' >> ~/opt/warden/warden-add.sh
 echo 'read subid' >> ~/opt/warden/warden-add.sh
-echo 'echo -n "Enter your ARM_CLIENT_ID: "' >> ~/opt/warden/warden-add.sh
+echo 'echo -n "ARM_CLIENT_ID: "' >> ~/opt/warden/warden-add.sh
 echo 'read clientid' >> ~/opt/warden/warden-add.sh
-echo 'echo -n "Enter your ARM_CLIENT_SECRET: "' >> ~/opt/warden/warden-add.sh
+echo 'echo -n "ARM_CLIENT_SECRET: "' >> ~/opt/warden/warden-add.sh
 echo 'read clientsecret' >> ~/opt/warden/warden-add.sh
-echo 'echo -n "Enter your ARM_TENANT_ID: "' >> ~/opt/warden/warden-add.sh
+echo 'echo -n "ARM_TENANT_ID: "' >> ~/opt/warden/warden-add.sh
 echo 'read tenantid' >> ~/opt/warden/warden-add.sh
 echo 'echo "#!/bin/bash" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
 echo 'echo "export ARM_SUBSCRIPTION_ID=$subid" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh

@@ -69,8 +69,6 @@ echo 'echo "*** Credentials successfully stored and encrypted ***"' >> ~/opt/war
 echo 'echo ""' >> ~/opt/warden/warden-add.sh
 
 # Populate purge script
-
-
 echo '#!/bin/bash' >> ~/opt/warden/warden-purge.sh
 echo 'rm -rf ~/opt/warden' >> ~/opt/warden/warden-purge.sh
 echo "sed -i -e '/warden/d' ~/.bash_profile" >> ~/opt/warden/warden-purge.sh

@@ -1,10 +1,6 @@
 # Warden
 
-__        __            _
-\ \      / /_ _ _ __ __| | ___ _ __
- \ \ /\ / / _` | '__/ _` |/ _ \ '_ \
-  \ V  V / (_| | | | (_| |  __/ | | |
-   \_/\_/ \__,_|_|  \__,_|\___|_| |_|  for Linux.
+Warden for Linux.
 
 An Azure alternative to the popular tool 'Credulous' for AWS. Allows encrypted storage of Azure credentials.
 

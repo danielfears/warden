@@ -71,7 +71,8 @@ echo 'echo ""' >> ~/opt/warden/warden-add.sh
 # Populate purge script
 echo '#!/bin/bash' >> ~/opt/warden/warden-purge.sh
 echo 'clear' >> ~/opt/warden/warden-purge.sh
-echo 'echo "*** WARNING - UNINSTALLING WARDEN WILL REMOVE ALL SAVED CREDENTIALS"' >> ~/opt/warden/warden-purge.sh
+echo 'echo "*** WARNING ***"' >> ~/opt/warden/warden-purge.sh
+echo 'echo "UNINSTALLING WILL REMOVE SAVED CREDENTIALS"' >> ~/opt/warden/warden-purge.sh
 echo 'echo ""' >> ~/opt/warden/warden-purge.sh
 echo 'echo "Do you want to continue? [n/y]: "' >> ~/opt/warden/warden-purge.sh
 echo 'read warning' >> ~/opt/warden/warden-purge.sh

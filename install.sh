@@ -74,7 +74,7 @@ echo 'clear' >> ~/opt/warden/warden-purge.sh
 echo 'echo "*** WARNING ***"' >> ~/opt/warden/warden-purge.sh
 echo 'echo "UNINSTALLING WILL REMOVE SAVED CREDENTIALS"' >> ~/opt/warden/warden-purge.sh
 echo 'echo ""' >> ~/opt/warden/warden-purge.sh
-echo 'echo "Do you want to continue? [n/y]: "' >> ~/opt/warden/warden-purge.sh
+echo 'echo -n "Do you want to continue? [n/y]: "' >> ~/opt/warden/warden-purge.sh
 echo 'read warning' >> ~/opt/warden/warden-purge.sh
 echo 'if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then' >> ~/opt/warden/warden-purge.sh
 echo '    rm -rf ~/opt/warden' >> ~/opt/warden/warden-purge.sh

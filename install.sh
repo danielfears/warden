@@ -38,6 +38,7 @@ echo 'echo ""' >> ~/opt/warden/warden-load.sh
 
 # Populate warden-add.sh
 echo '#!/bin/bash' >> ~/opt/warden/warden-add.sh
+echo 'clear' >> ~/opt/warden/warden-add.sh
 echo 'echo -n "Enter your username: "' >> ~/opt/warden/warden-add.sh
 echo 'read username' >> ~/opt/warden/warden-add.sh
 echo 'touch ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh

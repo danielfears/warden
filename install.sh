@@ -88,7 +88,8 @@ echo '    echo ""' >> ~/opt/warden/warden-purge.sh
 echo '    echo "***  Warden has been uninstalled and all credentials removed  ***"' >> ~/opt/warden/warden-purge.sh
 echo '    echo ""' >> ~/opt/warden/warden-purge.sh
 echo 'else' >> ~/opt/warden/warden-purge.sh
-echo '    echo "Did not remove"' >> ~/opt/warden/warden-purge.sh
+echo '    echo "Did not uninstall Warden"' >> ~/opt/warden/warden-purge.sh
+echo '    echo ""' >> ~/opt/warden/warden-purge.sh
 echo 'fi' >> ~/opt/warden/warden-purge.sh
 
 # Installation message & clean up

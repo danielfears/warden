@@ -5,12 +5,14 @@ An Azure alternative to the popular tool 'Credulous' for AWS. Allows encrypted s
 
 Installation & Removal Instructions
 
+(warden- commands can be run from any directory)
+
 * To install, run '. install.sh'
-* To uninstall, run 'warden-purge' from any directory.
+* To uninstall, run 'warden-purge'
 
 Usage Guide
 
-* To add and encrypt a new set of credentials, run 'warden-add' from any directory.
-* To load in a set of credentials, run 'warden-load' from any directory, and supply username and password of encryped file.
+* 'warden-add' - adds and encrypts a new set of credentials.
+* 'warden-load' - loads a set of existing credentials.
 
 Authored by Daniel Fears.

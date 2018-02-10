@@ -83,6 +83,13 @@ echo 'echo ""' >> ~/opt/warden/warden-purge.sh
 
 # Installation message & clean up
 clear
+echo ''
+echo '__        __            _'
+echo '\ \      / /_ _ _ __ __| | ___ _ __'
+echo ' \ \ /\ / / _` | __/  _\ |/ _ \ \ _ \'
+echo '  \ V  V / (_| | | | (_| |  __/ | | |'
+echo '   \_/\_/ \__,_|_|  \__,_|\___|_| |_|'
+echo ''
 echo '***  Warden has been successfully installed  ***'
 echo ''
 echo -n 'Would you like to remove installation file? [n/y]: '
@@ -98,7 +105,6 @@ if [[ $deletefile == "Y" || $deletefile == "y" || $deletefile == "yes" ]]; then
         echo '***  Warden has been successfully installed  ***'
         echo ''
         echo '(Installation file deleted)'
-        rm -rf install.sh
         rm -rf ../warden
 else
         echo '__        __            _'

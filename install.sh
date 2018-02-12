@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Add path of warden to environment variables
-echo 'alias warden-load=". ~/opt/warden/warden-load.sh"' >> ~/.bash_profile
+echo 'alias warden-source=". ~/opt/warden/warden-source.sh"' >> ~/.bash_profile
 echo 'alias warden-add=". ~/opt/warden/warden-add.sh"' >> ~/.bash_profile
-echo 'alias warden-purge=". ~/opt/warden/warden-purge.sh"' >> ~/.bash_profile
+echo 'alias warden-uninstall=". ~/opt/warden/warden-uninstall.sh"' >> ~/.bash_profile
 echo 'alias warden-list=". ~/opt/warden/warden-list.sh"' >> ~/.bash_profile
 . ~/.bash_profile
 
@@ -14,30 +14,30 @@ echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
 gpg-connect-agent /bye
 
 # Creation of installation folder
-mkdir -p ~/opt/warden
+mkdir -p ~/opt/warden/
 
 # Create warden script files
-touch ~/opt/warden/warden-load.sh
-chmod 777 ~/opt/warden/warden-load.sh
+touch ~/opt/warden/warden-source.sh
+chmod 777 ~/opt/warden/warden-source.sh
 touch ~/opt/warden/warden-add.sh
 chmod 777 ~/opt/warden/warden-add.sh
-touch ~/opt/warden/warden-purge.sh
-chmod 777 ~/opt/warden/warden-purge.sh
+touch ~/opt/warden/warden-uninstall.sh
+chmod 777 ~/opt/warden/warden-uninstall.sh
 touch ~/opt/warden/warden-list.sh
 chmod 777 ~/opt/warden/warden-list.sh
 
-# Populate warden-load script
-echo '#!/bin/bash' >> ~/opt/warden/warden-load.sh
-echo 'echo -n "Enter your username: "' >> ~/opt/warden/warden-load.sh
-echo 'read username' >> ~/opt/warden/warden-load.sh
-echo 'gpg --output ~/opt/warden/$username-creds.sh --decrypt ~/opt/warden/$username-creds.sh.gpg'>> ~/opt/warden/warden-load.sh
-echo 'wait' >> ~/opt/warden/warden-load.sh
-echo 'source ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-load.sh
-echo 'wait' >> ~/opt/warden/warden-load.sh
-echo 'rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-load.sh
-echo 'clear' >> ~/opt/warden/warden-load.sh
-echo 'echo "*** Azure credentials successfully loaded ***"' >> ~/opt/warden/warden-load.sh
-echo 'echo ""' >> ~/opt/warden/warden-load.sh
+# Populate warden-source script
+echo '#!/bin/bash' >> ~/opt/warden/warden-source.sh
+echo 'echo -n "Enter your username: "' >> ~/opt/warden/warden-source.sh
+echo 'read username' >> ~/opt/warden/warden-source.sh
+echo 'gpg --output ~/opt/warden/$username-creds.sh --decrypt ~/opt/warden/$username-creds.sh.gpg'>> ~/opt/warden/warden-source.sh
+echo 'wait' >> ~/opt/warden/warden-source.sh
+echo 'source ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-source.sh
+echo 'wait' >> ~/opt/warden/warden-source.sh
+echo 'rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-source.sh
+echo 'clear' >> ~/opt/warden/warden-source.sh
+echo 'echo "*** Azure credentials successfully sourceed ***"' >> ~/opt/warden/warden-source.sh
+echo 'echo ""' >> ~/opt/warden/warden-source.sh
 
 # Populate warden-add.sh
 echo '#!/bin/bash' >> ~/opt/warden/warden-add.sh
@@ -78,36 +78,37 @@ echo 'echo "clear"' >> ~/opt/warden/warden-add.sh
 echo 'echo "*** Credentials for $username successfully stored and encrypted ***"' >> ~/opt/warden/warden-add.sh
 echo 'echo ""' >> ~/opt/warden/warden-add.sh
 
-# Populate purge script
-echo '#!/bin/bash' >> ~/opt/warden/warden-purge.sh
-echo 'clear' >> ~/opt/warden/warden-purge.sh
-echo 'echo "*** WARNING ***"' >> ~/opt/warden/warden-purge.sh
-echo 'echo "UNINSTALLING WILL REMOVE SAVED CREDENTIALS"' >> ~/opt/warden/warden-purge.sh
-echo 'echo ""' >> ~/opt/warden/warden-purge.sh
-echo 'echo -n "Do you want to continue? [n/y]: "' >> ~/opt/warden/warden-purge.sh
-echo 'read warning' >> ~/opt/warden/warden-purge.sh
-echo 'if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then' >> ~/opt/warden/warden-purge.sh
-echo '    rm -rf ~/opt/warden' >> ~/opt/warden/warden-purge.sh
-echo "    sed -i -e '/warden/d' ~/.bash_profile" >> ~/opt/warden/warden-purge.sh
-echo '    rm -rf ~/.gnupg/gpg-agent.conf' >> ~/opt/warden/warden-purge.sh
-echo '    clear' >> ~/opt/warden/warden-purge.sh
-echo '    echo "(Removed warden folder & credentials)"' >> ~/opt/warden/warden-purge.sh
-echo '    echo "(Removed GPG settings file)"' >> ~/opt/warden/warden-purge.sh
-echo '    echo "(Removed alias entries from .bash_profile)"' >> ~/opt/warden/warden-purge.sh
-echo '    echo ""' >> ~/opt/warden/warden-purge.sh
-echo '    echo "***  Warden has been uninstalled and all credentials removed  ***"' >> ~/opt/warden/warden-purge.sh
-echo '    echo ""' >> ~/opt/warden/warden-purge.sh
-echo 'else' >> ~/opt/warden/warden-purge.sh
-echo '    echo "Did not uninstall Warden"' >> ~/opt/warden/warden-purge.sh
-echo '    echo ""' >> ~/opt/warden/warden-purge.sh
-echo 'fi' >> ~/opt/warden/warden-purge.sh
+# Populate uninstall script
+echo '#!/bin/bash' >> ~/opt/warden/warden-uninstall.sh
+echo 'clear' >> ~/opt/warden/warden-uninstall.sh
+echo 'echo "*** WARNING ***"' >> ~/opt/warden/warden-uninstall.sh
+echo 'echo "UNINSTALLING WILL REMOVE SAVED CREDENTIALS"' >> ~/opt/warden/warden-uninstall.sh
+echo 'echo ""' >> ~/opt/warden/warden-uninstall.sh
+echo 'echo -n "Do you want to continue? [n/y]: "' >> ~/opt/warden/warden-uninstall.sh
+echo 'read warning' >> ~/opt/warden/warden-uninstall.sh
+echo 'if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then' >> ~/opt/warden/warden-uninstall.sh
+echo '    rm -rf ~/opt/warden' >> ~/opt/warden/warden-uninstall.sh
+echo "    sed -i -e '/warden/d' ~/.bash_profile" >> ~/opt/warden/warden-uninstall.sh
+echo '    rm -rf ~/.gnupg/gpg-agent.conf' >> ~/opt/warden/warden-uninstall.sh
+echo '    clear' >> ~/opt/warden/warden-uninstall.sh
+echo '    echo "(Removed warden folder & credentials)"' >> ~/opt/warden/warden-uninstall.sh
+echo '    echo "(Removed GPG settings file)"' >> ~/opt/warden/warden-uninstall.sh
+echo '    echo "(Removed alias entries from .bash_profile)"' >> ~/opt/warden/warden-uninstall.sh
+echo '    echo ""' >> ~/opt/warden/warden-uninstall.sh
+echo '    echo "***  Warden has been uninstalled and all credentials removed  ***"' >> ~/opt/warden/warden-uninstall.sh
+echo '    echo ""' >> ~/opt/warden/warden-uninstall.sh
+echo 'else' >> ~/opt/warden/warden-uninstall.sh
+echo '    echo "Did not uninstall Warden"' >> ~/opt/warden/warden-uninstall.sh
+echo '    echo ""' >> ~/opt/warden/warden-uninstall.sh
+echo 'fi' >> ~/opt/warden/warden-uninstall.sh
 
 # Populate list script
 echo '#!/bin/bash' >> ~/opt/warden/warden-list.sh
 echo 'echo ""' >> ~/opt/warden/warden-list.sh
-echo 'echo "List of accounts with encrypted credentials:"' >> ~/opt/warden/warden-list.sh
+echo 'echo "Warden - List of accounts with encrypted credentials:"' >> ~/opt/warden/warden-list.sh
 echo 'echo ""' >> ~/opt/warden/warden-list.sh
 echo "ls *.sh.gpg | sed -e 's/\-creds.sh.gpg$//'" >> ~/opt/warden/warden-list.sh
+echo 'echo ""' >> ~/opt/warden/warden-list.sh
 
 # Installation message & clean up
 clear
@@ -148,7 +149,7 @@ echo ''
 echo 'USAGE GUIDE'
 echo ''
 echo '- "warden-add" to add & encrypt new user credentials'
-echo '- "warden-load" to load Azure credentials'
-echo '- "warden-purge" to uninstall Warden'
+echo '- "warden-source" to source Azure credentials'
+echo '- "warden-uninstall" to uninstall Warden'
 echo ''
 cd

@@ -4,6 +4,7 @@
 echo 'alias warden-load=". ~/opt/warden/warden-load.sh"' >> ~/.bash_profile
 echo 'alias warden-add=". ~/opt/warden/warden-add.sh"' >> ~/.bash_profile
 echo 'alias warden-purge=". ~/opt/warden/warden-purge.sh"' >> ~/.bash_profile
+echo 'alias warden-list=". ~/opt/warden/warden-list.sh"' >> ~/.bash_profile
 . ~/.bash_profile
 
 # Add configuration settings for GPG to enable password everytime and restart service
@@ -22,6 +23,8 @@ touch ~/opt/warden/warden-add.sh
 chmod 777 ~/opt/warden/warden-add.sh
 touch ~/opt/warden/warden-purge.sh
 chmod 777 ~/opt/warden/warden-purge.sh
+touch ~/opt/warden/warden-list.sh
+chmod 777 ~/opt/warden/warden-list.sh
 
 # Populate warden-load script
 echo '#!/bin/bash' >> ~/opt/warden/warden-load.sh
@@ -98,6 +101,13 @@ echo 'else' >> ~/opt/warden/warden-purge.sh
 echo '    echo "Did not uninstall Warden"' >> ~/opt/warden/warden-purge.sh
 echo '    echo ""' >> ~/opt/warden/warden-purge.sh
 echo 'fi' >> ~/opt/warden/warden-purge.sh
+
+# Populate list script
+echo '#!/bin/bash' >> ~/opt/warden/warden-list.sh
+echo 'echo ""' >> ~/opt/warden/warden-list.sh
+echo 'echo "List of accounts with encrypted credentials:"' >> ~/opt/warden/warden-list.sh
+echo 'echo ""' >> ~/opt/warden/warden-list.sh
+echo "ls *.sh.gpg | sed -e 's/\-creds.sh.gpg$//'" >> ~/opt/warden/warden-list.sh
 
 # Installation message & clean up
 clear

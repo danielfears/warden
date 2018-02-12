@@ -150,6 +150,7 @@ echo 'USAGE GUIDE'
 echo ''
 echo '- "warden-add" to add & encrypt new user credentials'
 echo '- "warden-source" to source Azure credentials'
+echo '- "warden-list" to list all Warden accounts'
 echo '- "warden-uninstall" to uninstall Warden'
 echo ''
 cd

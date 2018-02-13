@@ -107,10 +107,10 @@ echo '#!/bin/bash' >> ~/opt/warden/warden-list.sh
 echo 'echo ""' >> ~/opt/warden/warden-list.sh
 echo 'echo "Warden - List of accounts with encrypted credentials:"' >> ~/opt/warden/warden-list.sh
 echo 'echo ""' >> ~/opt/warden/warden-list.sh
-echo 'count=$(ls -1 *.sh.gpg 2>/dev/null | wc -l)' >> ~/opt/warden/warden-list.sh
+echo 'count=$(ls -1 ~/opt/warden/*.sh.gpg 2>/dev/null | wc -l)' >> ~/opt/warden/warden-list.sh
 echo 'if [ "$count" != 0 ]' >> ~/opt/warden/warden-list.sh
 echo 'then' >> ~/opt/warden/warden-list.sh
-echo "    ls *.sh.gpg | sed -e 's/\-creds.sh.gpg$//'" >> ~/opt/warden/warden-list.sh
+echo "    ls -1 ~/opt/warden/*.sh.gpg | tr '\n' '\0' | xargs -0 -n 1 basename | sed -e 's/\-creds.sh.gpg$//'" >> ~/opt/warden/warden-list.sh
 echo 'else' >> ~/opt/warden/warden-list.sh
 echo '    echo "There are no accounts currently being stored by Warden."' >> ~/opt/warden/warden-list.sh
 echo 'fi' >> ~/opt/warden/warden-list.sh

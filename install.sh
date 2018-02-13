@@ -70,7 +70,7 @@ echo 'echo "export ARM_CLIENT_SECRET=$clientsecret" >> ~/opt/warden/$username-cr
 echo 'echo "export ARM_TENANT_ID=$tenantid" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
 echo 'clear' >> ~/opt/warden/warden-add.sh
 echo 'echo "***  Encrypt credentials with a strong password  ***"' >> ~/opt/warden/warden-add.sh
-echo 'sleep 2' >> ~/opt/warden/warden-add.sh
+echo 'sleep 1' >> ~/opt/warden/warden-add.sh
 echo 'gpg --output ~/opt/warden/$username-creds.sh.gpg --symmetric ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
 echo 'wait' >> ~/opt/warden/warden-add.sh
 echo 'rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
@@ -110,7 +110,7 @@ echo 'echo ""' >> ~/opt/warden/warden-list.sh
 echo 'count=$(ls -1 *.sh.gpg 2>/dev/null | wc -l)' >> ~/opt/warden/warden-list.sh
 echo 'if [ "$count" != 0 ]' >> ~/opt/warden/warden-list.sh
 echo 'then' >> ~/opt/warden/warden-list.sh
-echo '    ls *.sh.gpg | sed -e "s/\-creds.sh.gpg$//"' >> ~/opt/warden/warden-list.sh
+echo "    ls *.sh.gpg | sed -e 's/\-creds.sh.gpg$//'" >> ~/opt/warden/warden-list.sh
 echo 'else' >> ~/opt/warden/warden-list.sh
 echo '    echo "There are no accounts currently being stored by Warden."' >> ~/opt/warden/warden-list.sh
 echo 'fi' >> ~/opt/warden/warden-list.sh

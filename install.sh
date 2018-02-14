@@ -95,6 +95,10 @@ if [ ! -d ~/opt/warden ]; then
   echo '    rm -rf ~/opt/warden' >> ~/opt/warden/warden-uninstall.sh
   echo "    sed -i -e '/warden/d' ~/.bash_profile" >> ~/opt/warden/warden-uninstall.sh
   echo '    rm -rf ~/.gnupg/gpg-agent.conf' >> ~/opt/warden/warden-uninstall.sh
+  echo '    unalias warden-add' >> ~/opt/warden/warden-uninstall.sh
+  echo '    unalias warden-source' >> ~/opt/warden/warden-uninstall.sh
+  echo '    unalias warden-list' >> ~/opt/warden/warden-uninstall.sh
+  echo '    unalias warden-uninstall' >> ~/opt/warden/warden-uninstall.sh
   echo '    clear' >> ~/opt/warden/warden-uninstall.sh
   echo '    echo "(Removed warden folder & credentials)"' >> ~/opt/warden/warden-uninstall.sh
   echo '    echo "(Removed GPG settings file)"' >> ~/opt/warden/warden-uninstall.sh

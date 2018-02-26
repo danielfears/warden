@@ -17,6 +17,7 @@ if [ ! -d ~/opt/warden ]; then
   echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
   echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
   gpg-connect-agent /bye
+  pkill gpg-agent
 
   # Creation of installation folder
   mkdir -p ~/opt/warden/

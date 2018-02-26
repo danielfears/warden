@@ -24,13 +24,13 @@ if [ ! -d ~/opt/warden ]; then
 
   # Create warden script files
   touch ~/opt/warden/warden-source.sh
-  chmod 777 ~/opt/warden/warden-source.sh
+  chmod 755 ~/opt/warden/warden-source.sh
   touch ~/opt/warden/warden-add.sh
-  chmod 777 ~/opt/warden/warden-add.sh
+  chmod 755 ~/opt/warden/warden-add.sh
   touch ~/opt/warden/warden-uninstall.sh
-  chmod 777 ~/opt/warden/warden-uninstall.sh
+  chmod 755 ~/opt/warden/warden-uninstall.sh
   touch ~/opt/warden/warden-list.sh
-  chmod 777 ~/opt/warden/warden-list.sh
+  chmod 755 ~/opt/warden/warden-list.sh
 
   # Populate warden-source script
   echo '#!/bin/bash' >> ~/opt/warden/warden-source.sh
@@ -57,7 +57,7 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo -n "Enter your username: "' >> ~/opt/warden/warden-add.sh
   echo 'read username' >> ~/opt/warden/warden-add.sh
   echo 'touch ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'chmod 777 ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo 'chmod 755 ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
   echo 'echo ""' >> ~/opt/warden/warden-add.sh
   echo 'echo "Enter Azure environment credentials for: $username"' >> ~/opt/warden/warden-add.sh
   echo 'echo ""' >> ~/opt/warden/warden-add.sh

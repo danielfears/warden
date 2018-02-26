@@ -42,7 +42,7 @@ if [ ! -d ~/opt/warden ]; then
   echo 'wait' >> ~/opt/warden/warden-source.sh
   echo 'rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-source.sh
   echo 'clear' >> ~/opt/warden/warden-source.sh
-  echo 'echo "*** Azure credentials successfully sourceed ***"' >> ~/opt/warden/warden-source.sh
+  echo 'echo "*** Azure credentials successfully sourced ***"' >> ~/opt/warden/warden-source.sh
   echo 'echo ""' >> ~/opt/warden/warden-source.sh
 
   # Populate warden-add.sh

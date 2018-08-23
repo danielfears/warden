@@ -6,22 +6,22 @@ Warden enables a safe and seamless way of authenticating with the Azure API; mak
 
 Multiple users can securely store their Azure credentials on a single machine, locked behind a username and password.
 
-Installation & Removal Instructions:
+### Installation & Removal Instructions:
 
 * To install, run '. install.sh'
 * To uninstall, run 'warden-uninstall'
 * For use with Vagrant; download directly onto VM and install, not on host machine.
 
-Usage Guide:
+### Usage Guide:
 
 * 'warden-add' - stores a new set of credentials under a username.
 * 'warden-source' - sources a set of stored credentials.
 * 'warden-list' - lists all currently stored accounts.
 
-Future development:
+### Future development:
 
 * Ability to remove/modify credentials via CLI
 * Support for AWS
 * "warden-source username"
 
-Authored by Daniel Fears.
+#### Authored by Daniel Fears.

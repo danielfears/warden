@@ -2,19 +2,26 @@
 
 Warden for Linux.
 
-An Azure alternative to the popular tool 'Credulous' for AWS. Allows encrypted storage of Azure credentials.
+Provides encrypted storage and sourcing of Azure credentials via CLI commands.
+
+An Azure alternative to the popular tool 'Credulous' for AWS; Warden provides a safe, seamless way of authenticating with the Azure API to allow deployment of assets via Terraform or the Azure CLI. Multiple users can securely store their Azure credentials on a single machine, locked behind a username and password.
 
 Installation & Removal Instructions:
 
 * To install, run '. install.sh'
 * To uninstall, run 'warden-uninstall'
-* Run install script directly on machine
+* For use with Vagrant; download directly onto VM and install, not on host machine.
 
 Usage Guide:
 
-* 'warden-' commands can be run from any directory
-* 'warden-add' - stores a new set of credentials under an account name.
-* 'warden-source' - sources a set of stored credentials using an account name.
+* 'warden-add' - stores a new set of credentials under a username.
+* 'warden-source' - sources a set of stored credentials.
 * 'warden-list' - lists all currently stored accounts.
+
+Future development:
+
+* Ability to remove/modify credentials via CLI
+* Support for AWS
+* "warden-source username"
 
 Authored by Daniel Fears.

@@ -1,6 +1,4 @@
-# Warden
-
-Warden for Linux.
+# Warden for Linux
 
 Provides encrypted storage and sourcing of Azure credentials via CLI commands.
 

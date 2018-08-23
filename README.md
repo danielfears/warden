@@ -2,7 +2,7 @@
 
 Provides encrypted storage and sourcing of Azure credentials via CLI commands.
 
-An Azure alternative to the popular tool 'Credulous' for AWS; Warden provides a safe, seamless way of authenticating with the Azure API to allow deployment of assets via Terraform or the Azure CLI. Multiple users can securely store their Azure credentials on a single machine, locked behind a username and password.
+Warden provides a safe, seamless way of authenticating with the Azure API to allow deployment of assets via Terraform or the Azure CLI. Multiple users can securely store their Azure credentials on a single machine, locked behind a username and password. An Azure alternative to the popular tool 'Credulous' for AWS.
 
 Installation & Removal Instructions:
 

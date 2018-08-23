@@ -17,7 +17,7 @@ Multiple users can securely store their Azure credentials on a single machine, l
 * **warden-source** will source a set of stored credentials.
 * **warden-list** will show all currently stored usernames.
 
-### Removal
+### Removal:
 
 * To uninstall, run **warden-uninstall**
 

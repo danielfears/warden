@@ -21,6 +21,8 @@ Multiple users can securely store their Azure credentials on a single machine, l
 
 * To uninstall, run **warden-uninstall**
 
+------
+
 Future development will include ability to remove/modify credentials via CLI, support for AWS, and the warden-source *username* command
 
 Authored by Daniel Fears.

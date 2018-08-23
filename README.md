@@ -14,9 +14,9 @@ Multiple users can securely store their Azure credentials on a single machine, l
 
 ### Usage Guide:
 
-* **warden-add** stores a new set of credentials under a username.
+* **warden-add** stores a new set of credentials under a username and password.
 * **warden-source** will source a set of stored credentials.
-* **warden-list** will list all currently stored usernames.
+* **warden-list** will show all currently stored usernames.
 
 ### Future development:
 

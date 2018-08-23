@@ -8,20 +8,20 @@ Multiple users can securely store their Azure credentials on a single machine, l
 
 ### Installation & Removal Instructions:
 
-* To install, run '. install.sh'
-* To uninstall, run 'warden-uninstall'
+* To install, run **. install.sh**
+* To uninstall, run **warden-uninstall**
 * For use with Vagrant; download directly onto VM and install, not on host machine.
 
 ### Usage Guide:
 
-* 'warden-add' - stores a new set of credentials under a username.
-* 'warden-source' - sources a set of stored credentials.
-* 'warden-list' - lists all currently stored accounts.
+* **warden-add** stores a new set of credentials under a username.
+* **warden-source** will source a set of stored credentials.
+* **warden-list** will list all currently stored usernames.
 
 ### Future development:
 
 * Ability to remove/modify credentials via CLI
 * Support for AWS
-* "warden-source username"
+* warden-source *username*
 
 #### Authored by Daniel Fears.

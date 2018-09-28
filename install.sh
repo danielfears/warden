@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if [ -d ~/opt/warden ]; then
   echo 'Warden is already installed. Please uninstall before attempting to reinstall.'
 fi

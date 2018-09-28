@@ -261,6 +261,7 @@ if [ ! -d ~/opt/warden ]; then
   read deletefile
   clear
   if [[ $deletefile == "Y" || $deletefile == "y" || $deletefile == "yes" ]]; then
+          tput setaf 4;
           echo '__        __            _'
           echo '\ \      / /_ _ _ __ __| | ___ _ __'
           echo ' \ \ /\ / / _` | __/  _  |/ _ \  _  \'
@@ -271,6 +272,7 @@ if [ ! -d ~/opt/warden ]; then
           echo ''
           echo '(Installation folder deleted)'
           rm -rf ../warden
+          tput sgr0
   else
           echo '__        __            _'
           echo '\ \      / /_ _ _ __ __| | ___ _ __'

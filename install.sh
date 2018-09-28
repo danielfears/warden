@@ -106,7 +106,7 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo ""' >> ~/opt/warden/warden-add.sh
   echo 'echo -n "Enter a new username: "' >> ~/opt/warden/warden-add.sh
   echo 'read username' >> ~/opt/warden/warden-add.sh
-  echo 'if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then' >> ~/opt/warden/warden-add.sh
+  echo 'if [ -f ~/opt/warden/$username-creds.sh.gpg ]; then' >> ~/opt/warden/warden-add.sh
   echo '    echo "Username already exists!"' >> ~/opt/warden/warden-add.sh
   echo '    echo ""' >> ~/opt/warden/warden-add.sh
   echo 'else' >> ~/opt/warden/warden-add.sh
@@ -244,7 +244,8 @@ if [ ! -d ~/opt/warden ]; then
   # -----------------------------------------------------------------
   # INSTALLATION MESSAGE & FILE CLEAN UP
   # -----------------------------------------------------------------
-
+  echo ''
+  echo ''
   echo '***  Warden has been successfully installed  ***'
   echo ''
   echo -n 'Would you like to remove installation folder? [n/y]: '

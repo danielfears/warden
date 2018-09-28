@@ -211,6 +211,7 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo ""' >> ~/opt/warden/warden-remove.sh
   echo 'echo -n "Enter a username: "' >> ~/opt/warden/warden-remove.sh
   echo 'read username' >> ~/opt/warden/warden-remove.sh
+  echo 'echo ""' >> ~/opt/warden/warden-remove.sh
   echo 'if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then' >> ~/opt/warden/warden-remove.sh
   echo '    echo ""' >> ~/opt/warden/warden-remove.sh
   echo '    echo "Username not found!"' >> ~/opt/warden/warden-remove.sh
@@ -221,6 +222,7 @@ if [ ! -d ~/opt/warden ]; then
   echo '    echo ""' >> ~/opt/warden/warden-remove.sh
   echo '    if [[ $removeuser == "Y" || $removeuser == "y" || $removeuser == "yes" ]]; then' >> ~/opt/warden/warden-remove.sh
   echo '        echo "Profile for $username has been removed from Warden"' >> ~/opt/warden/warden-remove.sh
+  echo '        echo ""' >> ~/opt/warden/warden-remove.sh
   echo '        rm -rf ~/opt/warden/$username-creds.sh.gpg' >> ~/opt/warden/warden-remove.sh
   echo '    else' >> ~/opt/warden/warden-remove.sh
   echo '        echo "Profile for $username NOT removed"' >> ~/opt/warden/warden-remove.sh

@@ -1,13 +1,14 @@
 #!/bin/bash
 
 clear
-echo "__        __            _"
-echo "\ \      / /_ _ _ __ __| | ___ _ __"
-echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"
-echo "  \ V  V / (_| | | | (_| |  __/ | | |"
-echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| add a user"
-echo ""
-echo -n "Enter your username: "
+echo '__        __            _'
+echo '\ \      / /_ _ _ __ __| | ___ _ __'
+echo ' \ \ /\ / / _` | __/  _  |/ _ \  _  \'
+echo '  \ V  V / (_| | | | (_| |  __/ | | |'
+echo '   \_/\_/ \__,_|_|  \__,_|\___|_| |_|  Add'
+echo ''
+echo ''
+echo -n "Enter a new username: "
 read username
 touch ~/opt/warden/$username-creds.sh
 chmod 755 ~/opt/warden/$username-creds.sh

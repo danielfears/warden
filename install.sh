@@ -1,29 +1,45 @@
 #!/bin/bash
 
+# -----------------------------------------------------------------
+# LOGIC TO CHECK IF WARDEN IS ALREADY INSTALLED
+# -----------------------------------------------------------------
 
 if [ -d ~/opt/warden ]; then
   echo 'Warden is already installed. Please uninstall before attempting to reinstall.'
 fi
 
 if [ ! -d ~/opt/warden ]; then
-  # Add path of warden to environment variables
+
+  # -----------------------------------------------------------------
+  # CREATING ALIAS ENTRIES FOR USING WARDEN COMMANDS
+  # -----------------------------------------------------------------
+
   echo 'alias warden-source=". ~/opt/warden/warden-source.sh"' >> ~/.bash_profile
   echo 'alias warden-add=". ~/opt/warden/warden-add.sh"' >> ~/.bash_profile
   echo 'alias warden-uninstall=". ~/opt/warden/warden-uninstall.sh"' >> ~/.bash_profile
   echo 'alias warden-list=". ~/opt/warden/warden-list.sh"' >> ~/.bash_profile
   . ~/.bash_profile
 
-  # Add configuration settings for GPG to enable password everytime and restart service
+  # -----------------------------------------------------------------
+  # CONFIGURING GPG TO ASK FOR PASSWORD INPUT AND RESTART SERVICE
+  # -----------------------------------------------------------------
+
   touch ~/.gnupg/gpg-agent.conf
   echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
   echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
   gpg-connect-agent /bye
   pkill gpg-agent
 
-  # Creation of installation folder
+  # -----------------------------------------------------------------
+  # CREATION OF INSTALLATION FOLDER
+  # -----------------------------------------------------------------
+
   mkdir -p ~/opt/warden/
 
-  # Create warden script files
+  # -----------------------------------------------------------------
+  # CREATION OF SCRIPT FILES
+  # -----------------------------------------------------------------
+
   touch ~/opt/warden/warden-source.sh
   chmod 755 ~/opt/warden/warden-source.sh
   touch ~/opt/warden/warden-add.sh
@@ -33,7 +49,10 @@ if [ ! -d ~/opt/warden ]; then
   touch ~/opt/warden/warden-list.sh
   chmod 755 ~/opt/warden/warden-list.sh
 
-  # Populate warden-source script
+  # -----------------------------------------------------------------
+  # POPULATE WARDEN-SOURCE.SH
+  # -----------------------------------------------------------------
+
   echo '#!/bin/bash' >> ~/opt/warden/warden-source.sh
   echo 'echo -n "Enter your username: "' >> ~/opt/warden/warden-source.sh
   echo 'read username' >> ~/opt/warden/warden-source.sh
@@ -46,7 +65,10 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo "*** Azure credentials successfully sourced ***"' >> ~/opt/warden/warden-source.sh
   echo 'echo ""' >> ~/opt/warden/warden-source.sh
 
-  # Populate warden-add.sh
+  # -----------------------------------------------------------------
+  # POPULATE WARDEN-ADD.SH
+  # -----------------------------------------------------------------
+
   echo '#!/bin/bash' >> ~/opt/warden/warden-add.sh
   echo 'clear' >> ~/opt/warden/warden-add.sh
   echo 'echo "__        __            _"' >> ~/opt/warden/warden-add.sh
@@ -85,7 +107,10 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo "*** Credentials for $username successfully stored and encrypted ***"' >> ~/opt/warden/warden-add.sh
   echo 'echo ""' >> ~/opt/warden/warden-add.sh
 
-  # Populate uninstall script
+  # -----------------------------------------------------------------
+  # POPULATE WARDEN-UNINSTALL.SH
+  # -----------------------------------------------------------------
+
   echo '#!/bin/bash' >> ~/opt/warden/warden-uninstall.sh
   echo 'clear' >> ~/opt/warden/warden-uninstall.sh
   echo 'echo "*** WARNING ***"' >> ~/opt/warden/warden-uninstall.sh
@@ -113,7 +138,10 @@ if [ ! -d ~/opt/warden ]; then
   echo '    echo ""' >> ~/opt/warden/warden-uninstall.sh
   echo 'fi' >> ~/opt/warden/warden-uninstall.sh
 
-  # Populate list script
+  # -----------------------------------------------------------------
+  # POPULATE WARDEN-LIST.SH
+  # -----------------------------------------------------------------
+
   echo '#!/bin/bash' >> ~/opt/warden/warden-list.sh
   echo 'echo ""' >> ~/opt/warden/warden-list.sh
   echo 'echo "Warden - List of accounts with encrypted credentials:"' >> ~/opt/warden/warden-list.sh
@@ -127,7 +155,10 @@ if [ ! -d ~/opt/warden ]; then
   echo 'fi' >> ~/opt/warden/warden-list.sh
   echo 'echo ""' >> ~/opt/warden/warden-list.sh
 
-  # Installation message & clean up
+  # -----------------------------------------------------------------
+  # INSTALLATION MESSAGE & FILE CLEAN UP
+  # -----------------------------------------------------------------
+  
   clear
   echo '__        __            _'
   echo '\ \      / /_ _ _ __ __| | ___ _ __'

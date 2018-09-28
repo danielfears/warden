@@ -11,11 +11,15 @@ echo ''
 echo -n "Enter a username:"
 echo ''
 read username
-echo -n "Are you sure you want to remove profile: $username? [n/y]: "
-read removeuser
-if [[ $removeuser == "Y" || $removeuser == "y" || $removeuser == "yes" ]]; then
-    echo "Profile for $username has been removed from Warden"
-    rm -rf ~/opt/warden/$username-creds.sh.gpg
+if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then
+    echo "Username not found!"
 else
-    echo "Profile for $username NOT removed"
+  echo -n "Are you sure you want to remove profile: $username? [n/y]: "
+  read removeuser
+  if [[ $removeuser == "Y" || $removeuser == "y" || $removeuser == "yes" ]]; then
+      echo "Profile for $username has been removed from Warden"
+      rm -rf ~/opt/warden/$username-creds.sh.gpg
+  else
+      echo "Profile for $username NOT removed"
+  fi
 fi

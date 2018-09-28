@@ -134,7 +134,7 @@ if [ ! -d ~/opt/warden ]; then
   echo '    gpg --output ~/opt/warden/$username-creds.sh.gpg --symmetric ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
   echo '    wait' >> ~/opt/warden/warden-add.sh
   echo '    rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo '    echo "clear"' >> ~/opt/warden/warden-add.sh
+  echo '    clear' >> ~/opt/warden/warden-add.sh
   echo '    echo "*** Credentials for $username successfully stored and encrypted ***"' >> ~/opt/warden/warden-add.sh
   echo '    echo ""' >> ~/opt/warden/warden-add.sh
   echo 'fi' >> ~/opt/warden/warden-add.sh
@@ -211,14 +211,18 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo ""' >> ~/opt/warden/warden-remove.sh
   echo 'echo -n "Enter a username: "' >> ~/opt/warden/warden-remove.sh
   echo 'read username' >> ~/opt/warden/warden-remove.sh
-  echo 'echo -n "Are you sure you want to remove profile: $username? [n/y]: "' >> ~/opt/warden/warden-remove.sh
-  echo 'read removeuser' >> ~/opt/warden/warden-remove.sh
-  echo 'echo ""' >> ~/opt/warden/warden-remove.sh
-  echo 'if [[ $removeuser == "Y" || $removeuser == "y" || $removeuser == "yes" ]]; then' >> ~/opt/warden/warden-remove.sh
-  echo '    echo "Profile for $username has been removed from Warden"' >> ~/opt/warden/warden-remove.sh
-  echo '    rm -rf ~/opt/warden/$username-creds.sh.gpg' >> ~/opt/warden/warden-remove.sh
+  echo 'if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then' >> ~/opt/warden/warden-remove.sh
+  echo '    echo "Username not found!"' >> ~/opt/warden/warden-remove.sh
   echo 'else' >> ~/opt/warden/warden-remove.sh
-  echo '    echo "Profile for $username NOT removed"' >> ~/opt/warden/warden-remove.sh
+  echo '    echo -n "Are you sure you want to remove profile: $username? [n/y]: "' >> ~/opt/warden/warden-remove.sh
+  echo '    read removeuser' >> ~/opt/warden/warden-remove.sh
+  echo '    echo ""' >> ~/opt/warden/warden-remove.sh
+  echo '    if [[ $removeuser == "Y" || $removeuser == "y" || $removeuser == "yes" ]]; then' >> ~/opt/warden/warden-remove.sh
+  echo '        echo "Profile for $username has been removed from Warden"' >> ~/opt/warden/warden-remove.sh
+  echo '        rm -rf ~/opt/warden/$username-creds.sh.gpg' >> ~/opt/warden/warden-remove.sh
+  echo '    else' >> ~/opt/warden/warden-remove.sh
+  echo '        echo "Profile for $username NOT removed"' >> ~/opt/warden/warden-remove.sh
+  echo '    fi' >> ~/opt/warden/warden-remove.sh
   echo 'fi' >> ~/opt/warden/warden-remove.sh
 
   # -----------------------------------------------------------------
@@ -244,7 +248,7 @@ if [ ! -d ~/opt/warden ]; then
   # -----------------------------------------------------------------
   # INSTALLATION MESSAGE & FILE CLEAN UP
   # -----------------------------------------------------------------
-  echo ''
+
   echo ''
   echo '***  Warden has been successfully installed  ***'
   echo ''

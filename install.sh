@@ -42,7 +42,7 @@ if [ ! -d ~/opt/warden ]; then
   mkdir -p ~/opt/warden/
 
   # -----------------------------------------------------------------
-  # CREATION OF SCRIPT FILES
+  # CREATION OF SCRIPT FILES & SETTING PERMISSIONS
   # -----------------------------------------------------------------
 
   touch ~/opt/warden/warden-source.sh
@@ -77,14 +77,19 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo ""' >> ~/opt/warden/warden-source.sh
   echo 'echo -n "Enter your username: "' >> ~/opt/warden/warden-source.sh
   echo 'read username' >> ~/opt/warden/warden-source.sh
-  echo 'gpg --output ~/opt/warden/$username-creds.sh --decrypt ~/opt/warden/$username-creds.sh.gpg'>> ~/opt/warden/warden-source.sh
-  echo 'wait' >> ~/opt/warden/warden-source.sh
-  echo 'source ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-source.sh
-  echo 'wait' >> ~/opt/warden/warden-source.sh
-  echo 'rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-source.sh
-  echo 'clear' >> ~/opt/warden/warden-source.sh
-  echo 'echo "*** Azure credentials successfully sourced ***"' >> ~/opt/warden/warden-source.sh
-  echo 'echo ""' >> ~/opt/warden/warden-source.sh
+  echo 'if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then' >> ~/opt/warden/warden-source.sh
+  echo '    echo "Username not found!"' >> ~/opt/warden/warden-source.sh
+  echo '    echo ""' >> ~/opt/warden/warden-source.sh
+  echo 'else' >> ~/opt/warden/warden-source.sh
+  echo '    gpg --output ~/opt/warden/$username-creds.sh --decrypt ~/opt/warden/$username-creds.sh.gpg'>> ~/opt/warden/warden-source.sh
+  echo '    wait' >> ~/opt/warden/warden-source.sh
+  echo '    source ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-source.sh
+  echo '    wait' >> ~/opt/warden/warden-source.sh
+  echo '    rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-source.sh
+  echo '    clear' >> ~/opt/warden/warden-source.sh
+  echo '    echo "*** Azure credentials successfully sourced ***"' >> ~/opt/warden/warden-source.sh
+  echo '    echo ""' >> ~/opt/warden/warden-source.sh
+  echo 'fi' >> ~/opt/warden/warden-source.sh
 
   # -----------------------------------------------------------------
   # POPULATE WARDEN-ADD.SH
@@ -96,7 +101,7 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-add.sh
   echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"' >> ~/opt/warden/warden-add.sh
   echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-add.sh
-  echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| add a user"' >> ~/opt/warden/warden-add.sh
+  echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| add a profile"' >> ~/opt/warden/warden-add.sh
   echo 'echo ""' >> ~/opt/warden/warden-add.sh
   echo 'echo -n "Enter a new username: "' >> ~/opt/warden/warden-add.sh
   echo 'read username' >> ~/opt/warden/warden-add.sh
@@ -196,13 +201,13 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-remove.sh
   echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"' >> ~/opt/warden/warden-remove.sh
   echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-remove.sh
-  echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| remove an existing user"' >> ~/opt/warden/warden-remove.sh
+  echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| remove a profile"' >> ~/opt/warden/warden-remove.sh
   echo 'echo ""' >> ~/opt/warden/warden-remove.sh
-  echo 'echo -n "Enter a username:"' >> ~/opt/warden/warden-remove.sh
-  echo 'echo ""' >> ~/opt/warden/warden-remove.sh
+  echo 'echo -n "Enter a username: "' >> ~/opt/warden/warden-remove.sh
   echo 'read username' >> ~/opt/warden/warden-remove.sh
   echo 'echo -n "Are you sure you want to remove profile: $username? [n/y]: "' >> ~/opt/warden/warden-remove.sh
   echo 'read removeuser' >> ~/opt/warden/warden-remove.sh
+  echo 'echo ""' >> ~/opt/warden/warden-remove.sh
   echo 'if [[ $removeuser == "Y" || $removeuser == "y" || $removeuser == "yes" ]]; then' >> ~/opt/warden/warden-remove.sh
   echo '    echo "Profile for $username has been removed from Warden"' >> ~/opt/warden/warden-remove.sh
   echo '    rm -rf ~/opt/warden/$username-creds.sh.gpg' >> ~/opt/warden/warden-remove.sh
@@ -222,12 +227,13 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-help.sh
   echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| help and usage"' >> ~/opt/warden/warden-help.sh
   echo 'echo ""' >> ~/opt/warden/warden-help.sh
-  echo 'echo "- "warden source" loads credentials from an existing profile"' >> ~/opt/warden/warden-help.sh
-  echo 'echo "- "warden add" adds a new profle to store Azure credentials"' >> ~/opt/warden/warden-help.sh
-  echo 'echo "- "warden list" lists existing profiles"' >> ~/opt/warden/warden-help.sh
-  echo 'echo "- "warden remove" removes an existing profile"' >> ~/opt/warden/warden-help.sh
-  echo 'echo "- "warden help" displays the help menu"' >> ~/opt/warden/warden-help.sh
-  echo 'echo "- "warden uninstall" Uninstalls Warden and removes all profiles"' >> ~/opt/warden/warden-help.sh
+  echo 'echo "* warden source - loads credentials from an existing profile"' >> ~/opt/warden/warden-help.sh
+  echo 'echo "* warden add - adds a new profle to store Azure credentials"' >> ~/opt/warden/warden-help.sh
+  echo 'echo "* warden list - lists existing profiles"' >> ~/opt/warden/warden-help.sh
+  echo 'echo "* warden remove - removes an existing profile"' >> ~/opt/warden/warden-help.sh
+  echo 'echo "* warden help - displays the help menu"' >> ~/opt/warden/warden-help.sh
+  echo 'echo "* warden uninstall - Uninstalls Warden and removes all profiles"' >> ~/opt/warden/warden-help.sh
+  echo 'echo ""' >> ~/opt/warden/warden-help.sh
 
   # -----------------------------------------------------------------
   # INSTALLATION MESSAGE & FILE CLEAN UP

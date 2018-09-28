@@ -69,13 +69,13 @@ if [ ! -d ~/opt/warden ]; then
 
   echo '#!/bin/bash' >> ~/opt/warden/warden-source.sh
   echo 'clear' >> ~/opt/warden/warden-source.sh
-  echo 'echo "tput setaf 4;"' >> ~/opt/warden/warden-source.sh
+  echo 'tput setaf 4;' >> ~/opt/warden/warden-source.sh
   echo 'echo "__        __            _"' >> ~/opt/warden/warden-source.sh
   echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-source.sh
   echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"' >> ~/opt/warden/warden-source.sh
   echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-source.sh
   echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| source credentials"' >> ~/opt/warden/warden-source.sh
-  echo 'echo "tput sgr0"' >> ~/opt/warden/warden-source.sh
+  echo 'tput sgr0' >> ~/opt/warden/warden-source.sh
   echo 'echo ""' >> ~/opt/warden/warden-source.sh
   echo 'echo -n "Enter your username: "' >> ~/opt/warden/warden-source.sh
   echo 'read username' >> ~/opt/warden/warden-source.sh
@@ -100,13 +100,13 @@ if [ ! -d ~/opt/warden ]; then
 
   echo '#!/bin/bash' >> ~/opt/warden/warden-add.sh
   echo 'clear' >> ~/opt/warden/warden-add.sh
-  echo 'echo "tput setaf 4;"' >> ~/opt/warden/warden-add.sh
+  echo 'tput setaf 4;' >> ~/opt/warden/warden-add.sh
   echo 'echo "__        __            _"' >> ~/opt/warden/warden-add.sh
   echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-add.sh
   echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"' >> ~/opt/warden/warden-add.sh
   echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-add.sh
   echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| add a profile"' >> ~/opt/warden/warden-add.sh
-  echo 'echo "tput sgr0"' >> ~/opt/warden/warden-add.sh
+  echo 'tput sgr0' >> ~/opt/warden/warden-add.sh
   echo 'echo ""' >> ~/opt/warden/warden-add.sh
   echo 'echo -n "Enter a new username: "' >> ~/opt/warden/warden-add.sh
   echo 'read username' >> ~/opt/warden/warden-add.sh
@@ -149,13 +149,13 @@ if [ ! -d ~/opt/warden ]; then
 
   echo '#!/bin/bash' >> ~/opt/warden/warden-uninstall.sh
   echo 'clear' >> ~/opt/warden/warden-uninstall.sh
-  echo 'echo "tput setaf 4;"' >> ~/opt/warden/warden-uninstall.sh
+  echo 'tput setaf 4;' >> ~/opt/warden/warden-uninstall.sh
   echo 'echo "__        __            _"' >> ~/opt/warden/warden-uninstall.sh
   echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-uninstall.sh
   echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"' >> ~/opt/warden/warden-uninstall.sh
   echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-uninstall.sh
   echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| uninstall"' >> ~/opt/warden/warden-uninstall.sh
-  echo 'echo "tput sgr0"' >> ~/opt/warden/warden-uninstall.sh
+  echo 'tput sgr0' >> ~/opt/warden/warden-uninstall.sh
   echo 'echo ""' >> ~/opt/warden/warden-uninstall.sh
   echo 'echo "*** WARNING ***"' >> ~/opt/warden/warden-uninstall.sh
   echo 'echo "UNINSTALLING WILL REMOVE SAVED CREDENTIALS"' >> ~/opt/warden/warden-uninstall.sh
@@ -188,13 +188,13 @@ if [ ! -d ~/opt/warden ]; then
 
   echo '#!/bin/bash' >> ~/opt/warden/warden-list.sh
   echo 'clear' >> ~/opt/warden/warden-list.sh
-  echo 'echo "tput setaf 4;"' >> ~/opt/warden/warden-list.sh
+  echo 'tput setaf 4;' >> ~/opt/warden/warden-list.sh
   echo 'echo "__        __            _"' >> ~/opt/warden/warden-list.sh
   echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-list.sh
   echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"' >> ~/opt/warden/warden-list.sh
   echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-list.sh
   echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| list of existing users"' >> ~/opt/warden/warden-list.sh
-  echo 'echo "tput sgr0"' >> ~/opt/warden/warden-list.sh
+  echo 'tput sgr0' >> ~/opt/warden/warden-list.sh
   echo 'echo ""' >> ~/opt/warden/warden-list.sh
   echo 'count=$(ls -1 ~/opt/warden/*.sh.gpg 2>/dev/null | wc -l)' >> ~/opt/warden/warden-list.sh
   echo 'if [ "$count" != 0 ]' >> ~/opt/warden/warden-list.sh
@@ -211,13 +211,13 @@ if [ ! -d ~/opt/warden ]; then
 
   echo '#!/bin/bash' >> ~/opt/warden/warden-remove.sh
   echo 'clear' >> ~/opt/warden/warden-remove.sh
-  echo 'echo "tput setaf 4;"' >> ~/opt/warden/warden-remove.sh
+  echo 'tput setaf 4;' >> ~/opt/warden/warden-remove.sh
   echo 'echo "__        __            _"' >> ~/opt/warden/warden-remove.sh
   echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-remove.sh
   echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"' >> ~/opt/warden/warden-remove.sh
   echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-remove.sh
   echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| remove a profile"' >> ~/opt/warden/warden-remove.sh
-  echo 'echo "tput sgr0"' >> ~/opt/warden/warden-remove.sh
+  echo 'tput sgr0' >> ~/opt/warden/warden-remove.sh
   echo 'echo ""' >> ~/opt/warden/warden-remove.sh
   echo 'echo -n "Enter a username: "' >> ~/opt/warden/warden-remove.sh
   echo 'read username' >> ~/opt/warden/warden-remove.sh
@@ -246,13 +246,13 @@ if [ ! -d ~/opt/warden ]; then
 
   echo '#!/bin/bash' >> ~/opt/warden/warden-help.sh
   echo 'clear' >> ~/opt/warden/warden-help.sh
-  echo 'echo "tput setaf 4;"' >> ~/opt/warden/warden-help.sh
+  echo 'tput setaf 4;' >> ~/opt/warden/warden-help.sh
   echo 'echo "__        __            _"' >> ~/opt/warden/warden-help.sh
   echo 'echo "\ \      / /_ _ _ __ __| | ___ _ __"' >> ~/opt/warden/warden-help.sh
   echo 'echo " \ \ /\ / / _  | __/  _  |/ _ \  _  \\"' >> ~/opt/warden/warden-help.sh
   echo 'echo "  \ V  V / (_| | | | (_| |  __/ | | |"' >> ~/opt/warden/warden-help.sh
   echo 'echo "   \_/\_/ \__,_|_|  \__,_|\___|_| |_| help and usage"' >> ~/opt/warden/warden-help.sh
-  echo 'echo "tput sgr0"' >> ~/opt/warden/warden-help.sh
+  echo 'tput sgr0' >> ~/opt/warden/warden-help.sh
   echo 'echo ""' >> ~/opt/warden/warden-help.sh
   echo 'echo "* warden source - loads credentials from an existing profile"' >> ~/opt/warden/warden-help.sh
   echo 'echo "* warden add - adds a new profle to store Azure credentials"' >> ~/opt/warden/warden-help.sh

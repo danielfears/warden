@@ -1,17 +1,21 @@
 #!/bin/bash
 
 # -----------------------------------------------------------------
-# LOGIC TO CHECK IF WARDEN IS ALREADY INSTALLED
+# CHECK IF WARDEN IS INSTALLED: UPDATING WARDEN
 # -----------------------------------------------------------------
 
 if [ -d ~/opt/warden ]; then
   echo 'Warden is already installed. Please uninstall before attempting to reinstall.'
 fi
 
+# -----------------------------------------------------------------
+# CHECK IF WARDEN IS INSTALLED: INSTALLING WARDEN
+# -----------------------------------------------------------------
+
 if [ ! -d ~/opt/warden ]; then
 
   # -----------------------------------------------------------------
-  # TRIALING NEW METHOD FOR CALLING COMMANDS WITH A SPACE
+  # CREATE BASH FUNCTION IN BASH_PROFILE FOR FUNCTIONALITY
   # -----------------------------------------------------------------
 
   echo " warden () {" >> ~/.bash_profile
@@ -20,13 +24,8 @@ if [ ! -d ~/opt/warden ]; then
 
   . ~/.bash_profile
 
-  # echo 'alias warden-source=". ~/opt/warden/warden-source.sh"' >> ~/.bash_profile
-  # echo 'alias warden-add=". ~/opt/warden/warden-add.sh"' >> ~/.bash_profile
-  # echo 'alias warden-uninstall=". ~/opt/warden/warden-uninstall.sh"' >> ~/.bash_profile
-  # echo 'alias warden-list=". ~/opt/warden/warden-list.sh"' >> ~/.bash_profile
-
   # -----------------------------------------------------------------
-  # CONFIGURING GPG TO ASK FOR PASSWORD INPUT AND RESTART SERVICE
+  # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
   # -----------------------------------------------------------------
 
   touch ~/.gnupg/gpg-agent.conf
@@ -36,13 +35,13 @@ if [ ! -d ~/opt/warden ]; then
   pkill gpg-agent
 
   # -----------------------------------------------------------------
-  # CREATION OF INSTALLATION FOLDER
+  # CREATE INSTALLATION FOLDER
   # -----------------------------------------------------------------
 
   mkdir -p ~/opt/warden/
 
   # -----------------------------------------------------------------
-  # CREATION OF SCRIPT FILES & SETTING PERMISSIONS
+  # CREATE SCRIPT FILES & SET PERMISSIONS
   # -----------------------------------------------------------------
 
   touch ~/opt/warden/warden-source.sh
@@ -166,10 +165,6 @@ if [ ! -d ~/opt/warden ]; then
   echo '    rm -rf ~/opt/warden' >> ~/opt/warden/warden-uninstall.sh
   echo "    sed -i -e '/warden/d' ~/.bash_profile" >> ~/opt/warden/warden-uninstall.sh
   echo '    rm -rf ~/.gnupg/gpg-agent.conf' >> ~/opt/warden/warden-uninstall.sh
-  # echo '    unalias warden-add' >> ~/opt/warden/warden-uninstall.sh
-  # echo '    unalias warden-source' >> ~/opt/warden/warden-uninstall.sh
-  # echo '    unalias warden-list' >> ~/opt/warden/warden-uninstall.sh
-  # echo '    unalias warden-uninstall' >> ~/opt/warden/warden-uninstall.sh
   echo '    clear' >> ~/opt/warden/warden-uninstall.sh
   echo '    echo "(Removed Warden folder & credentials)"' >> ~/opt/warden/warden-uninstall.sh
   echo '    echo "(Removed GPG settings file)"' >> ~/opt/warden/warden-uninstall.sh

@@ -11,14 +11,19 @@ fi
 if [ ! -d ~/opt/warden ]; then
 
   # -----------------------------------------------------------------
-  # CREATING ALIAS ENTRIES FOR USING WARDEN COMMANDS
+  # TRIALING NEW METHOD FOR CALLING COMMANDS WITH A SPACE
   # -----------------------------------------------------------------
 
-  echo 'alias warden-source=". ~/opt/warden/warden-source.sh"' >> ~/.bash_profile
-  echo 'alias warden-add=". ~/opt/warden/warden-add.sh"' >> ~/.bash_profile
-  echo 'alias warden-uninstall=". ~/opt/warden/warden-uninstall.sh"' >> ~/.bash_profile
-  echo 'alias warden-list=". ~/opt/warden/warden-list.sh"' >> ~/.bash_profile
+  echo " warden () {" >> ~/.bash_profile
+  echo "   . ~/opt/warden/warden-\$1.sh" >> ~/.bash_profile
+  echo " } # warden - comment for removal functionality" >> ~/.bash_profile
+
   . ~/.bash_profile
+
+  # echo 'alias warden-source=". ~/opt/warden/warden-source.sh"' >> ~/.bash_profile
+  # echo 'alias warden-add=". ~/opt/warden/warden-add.sh"' >> ~/.bash_profile
+  # echo 'alias warden-uninstall=". ~/opt/warden/warden-uninstall.sh"' >> ~/.bash_profile
+  # echo 'alias warden-list=". ~/opt/warden/warden-list.sh"' >> ~/.bash_profile
 
   # -----------------------------------------------------------------
   # CONFIGURING GPG TO ASK FOR PASSWORD INPUT AND RESTART SERVICE
@@ -122,14 +127,14 @@ if [ ! -d ~/opt/warden ]; then
   echo '    rm -rf ~/opt/warden' >> ~/opt/warden/warden-uninstall.sh
   echo "    sed -i -e '/warden/d' ~/.bash_profile" >> ~/opt/warden/warden-uninstall.sh
   echo '    rm -rf ~/.gnupg/gpg-agent.conf' >> ~/opt/warden/warden-uninstall.sh
-  echo '    unalias warden-add' >> ~/opt/warden/warden-uninstall.sh
-  echo '    unalias warden-source' >> ~/opt/warden/warden-uninstall.sh
-  echo '    unalias warden-list' >> ~/opt/warden/warden-uninstall.sh
-  echo '    unalias warden-uninstall' >> ~/opt/warden/warden-uninstall.sh
+  # echo '    unalias warden-add' >> ~/opt/warden/warden-uninstall.sh
+  # echo '    unalias warden-source' >> ~/opt/warden/warden-uninstall.sh
+  # echo '    unalias warden-list' >> ~/opt/warden/warden-uninstall.sh
+  # echo '    unalias warden-uninstall' >> ~/opt/warden/warden-uninstall.sh
   echo '    clear' >> ~/opt/warden/warden-uninstall.sh
-  echo '    echo "(Removed warden folder & credentials)"' >> ~/opt/warden/warden-uninstall.sh
+  echo '    echo "(Removed Warden folder & credentials)"' >> ~/opt/warden/warden-uninstall.sh
   echo '    echo "(Removed GPG settings file)"' >> ~/opt/warden/warden-uninstall.sh
-  echo '    echo "(Removed alias entries from .bash_profile)"' >> ~/opt/warden/warden-uninstall.sh
+  echo '    echo "(Removed Warden function entry from .bash_profile)"' >> ~/opt/warden/warden-uninstall.sh
   echo '    echo ""' >> ~/opt/warden/warden-uninstall.sh
   echo '    echo "***  Warden has been uninstalled and all credentials removed  ***"' >> ~/opt/warden/warden-uninstall.sh
   echo '    echo ""' >> ~/opt/warden/warden-uninstall.sh
@@ -158,7 +163,7 @@ if [ ! -d ~/opt/warden ]; then
   # -----------------------------------------------------------------
   # INSTALLATION MESSAGE & FILE CLEAN UP
   # -----------------------------------------------------------------
-  
+
   clear
   echo '__        __            _'
   echo '\ \      / /_ _ _ __ __| | ___ _ __'
@@ -196,10 +201,10 @@ if [ ! -d ~/opt/warden ]; then
   echo ''
   echo 'USAGE GUIDE'
   echo ''
-  echo '- "warden-add" to add & encrypt new user credentials'
-  echo '- "warden-source" to source Azure credentials'
-  echo '- "warden-list" to list all Warden accounts'
-  echo '- "warden-uninstall" to uninstall Warden'
+  echo '- "warden add" to add & encrypt new user credentials'
+  echo '- "warden source" to source Azure credentials'
+  echo '- "warden list" to list all Warden accounts'
+  echo '- "warden uninstall" to uninstall Warden'
   echo ''
   cd
 

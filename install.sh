@@ -78,6 +78,7 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo -n "Enter your username: "' >> ~/opt/warden/warden-source.sh
   echo 'read username' >> ~/opt/warden/warden-source.sh
   echo 'if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then' >> ~/opt/warden/warden-source.sh
+  echo '    echo ""' >> ~/opt/warden/warden-source.sh
   echo '    echo "Username not found!"' >> ~/opt/warden/warden-source.sh
   echo '    echo ""' >> ~/opt/warden/warden-source.sh
   echo 'else' >> ~/opt/warden/warden-source.sh
@@ -105,33 +106,38 @@ if [ ! -d ~/opt/warden ]; then
   echo 'echo ""' >> ~/opt/warden/warden-add.sh
   echo 'echo -n "Enter a new username: "' >> ~/opt/warden/warden-add.sh
   echo 'read username' >> ~/opt/warden/warden-add.sh
-  echo 'touch ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'chmod 755 ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'echo ""' >> ~/opt/warden/warden-add.sh
-  echo 'echo "Enter Azure environment credentials for: $username"' >> ~/opt/warden/warden-add.sh
-  echo 'echo ""' >> ~/opt/warden/warden-add.sh
-  echo 'echo -n "ARM_SUBSCRIPTION_ID: "' >> ~/opt/warden/warden-add.sh
-  echo 'read subid' >> ~/opt/warden/warden-add.sh
-  echo 'echo -n "ARM_CLIENT_ID: "' >> ~/opt/warden/warden-add.sh
-  echo 'read clientid' >> ~/opt/warden/warden-add.sh
-  echo 'echo -n "ARM_CLIENT_SECRET: "' >> ~/opt/warden/warden-add.sh
-  echo 'read clientsecret' >> ~/opt/warden/warden-add.sh
-  echo 'echo -n "ARM_TENANT_ID: "' >> ~/opt/warden/warden-add.sh
-  echo 'read tenantid' >> ~/opt/warden/warden-add.sh
-  echo 'echo "#!/bin/bash" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'echo "export ARM_SUBSCRIPTION_ID=$subid" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'echo "export ARM_CLIENT_ID=$clientid" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'echo "export ARM_CLIENT_SECRET=$clientsecret" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'echo "export ARM_TENANT_ID=$tenantid" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'clear' >> ~/opt/warden/warden-add.sh
-  echo 'echo "***  Encrypt credentials with a strong password  ***"' >> ~/opt/warden/warden-add.sh
-  echo 'sleep 1' >> ~/opt/warden/warden-add.sh
-  echo 'gpg --output ~/opt/warden/$username-creds.sh.gpg --symmetric ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'wait' >> ~/opt/warden/warden-add.sh
-  echo 'rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
-  echo 'echo "clear"' >> ~/opt/warden/warden-add.sh
-  echo 'echo "*** Credentials for $username successfully stored and encrypted ***"' >> ~/opt/warden/warden-add.sh
-  echo 'echo ""' >> ~/opt/warden/warden-add.sh
+  echo 'if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then' >> ~/opt/warden/warden-add.sh
+  echo '    echo "Username already exists!"' >> ~/opt/warden/warden-add.sh
+  echo '    echo ""' >> ~/opt/warden/warden-add.sh
+  echo 'else' >> ~/opt/warden/warden-add.sh
+  echo '    touch ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo '    chmod 755 ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo '    echo ""' >> ~/opt/warden/warden-add.sh
+  echo '    echo "Enter Azure environment credentials for: $username"' >> ~/opt/warden/warden-add.sh
+  echo '    echo ""' >> ~/opt/warden/warden-add.sh
+  echo '    echo -n "ARM_SUBSCRIPTION_ID: "' >> ~/opt/warden/warden-add.sh
+  echo '    read subid' >> ~/opt/warden/warden-add.sh
+  echo '    echo -n "ARM_CLIENT_ID: "' >> ~/opt/warden/warden-add.sh
+  echo '    read clientid' >> ~/opt/warden/warden-add.sh
+  echo '    echo -n "ARM_CLIENT_SECRET: "' >> ~/opt/warden/warden-add.sh
+  echo '    read clientsecret' >> ~/opt/warden/warden-add.sh
+  echo '    echo -n "ARM_TENANT_ID: "' >> ~/opt/warden/warden-add.sh
+  echo '    read tenantid' >> ~/opt/warden/warden-add.sh
+  echo '    echo "#!/bin/bash" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo '    echo "export ARM_SUBSCRIPTION_ID=$subid" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo '    echo "export ARM_CLIENT_ID=$clientid" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo '    echo "export ARM_CLIENT_SECRET=$clientsecret" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo '    echo "export ARM_TENANT_ID=$tenantid" >> ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo '    clear' >> ~/opt/warden/warden-add.sh
+  echo '    echo "***  Encrypt credentials with a strong password  ***"' >> ~/opt/warden/warden-add.sh
+  echo '    sleep 1' >> ~/opt/warden/warden-add.sh
+  echo '    gpg --output ~/opt/warden/$username-creds.sh.gpg --symmetric ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo '    wait' >> ~/opt/warden/warden-add.sh
+  echo '    rm -rf ~/opt/warden/$username-creds.sh' >> ~/opt/warden/warden-add.sh
+  echo '    echo "clear"' >> ~/opt/warden/warden-add.sh
+  echo '    echo "*** Credentials for $username successfully stored and encrypted ***"' >> ~/opt/warden/warden-add.sh
+  echo '    echo ""' >> ~/opt/warden/warden-add.sh
+  echo 'fi' >> ~/opt/warden/warden-add.sh
 
   # -----------------------------------------------------------------
   # POPULATE WARDEN-UNINSTALL.SH

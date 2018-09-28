@@ -10,6 +10,9 @@ echo ''
 echo ''
 echo -n "Enter a new username: "
 read username
+if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then
+    echo "Username already exists!"
+else
 touch ~/opt/warden/$username-creds.sh
 chmod 755 ~/opt/warden/$username-creds.sh
 echo ""

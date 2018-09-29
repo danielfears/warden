@@ -46,38 +46,18 @@ if [ ! -d ~/opt/warden ]; then
   # INSTALLATION MESSAGE & FILE CLEAN UP
   # -----------------------------------------------------------------
 
+  tput setaf 4;
+  echo '__        __            _'
+  echo '\ \      / /_ _ _ __ __| | ___ _ __'
+  echo ' \ \ /\ / / _` | __/  _  |/ _ \  _  \'
+  echo '  \ V  V / (_| | | | (_| |  __/ | | |'
+  echo '   \_/\_/ \__,_|_|  \__,_|\___|_| |_| for Azure'
+  tput sgr0
+  
   echo ''
-  echo 'Warden has been successfully installed.'
+  echo '***  Warden has been successfully installed  ***'
   echo ''
-  echo -n 'Would you like to remove installation folder? [n/y]: '
-  read deletefile
-  clear
-  if [[ $deletefile == "Y" || $deletefile == "y" || $deletefile == "yes" ]]; then
-          tput setaf 4;
-          echo '__        __            _'
-          echo '\ \      / /_ _ _ __ __| | ___ _ __'
-          echo ' \ \ /\ / / _` | __/  _  |/ _ \  _  \'
-          echo '  \ V  V / (_| | | | (_| |  __/ | | |'
-          echo '   \_/\_/ \__,_|_|  \__,_|\___|_| |_| for Azure'
-          tput sgr0
-          echo ''
-          echo '***  Warden has been successfully installed  ***'
-          echo ''
-          echo '(Installation folder deleted)'
-          rm -rf ../warden
-  else
-          tput setaf 4;
-          echo '__        __            _'
-          echo '\ \      / /_ _ _ __ __| | ___ _ __'
-          echo ' \ \ /\ / / _` | __/  _  |/ _ \  _  \'
-          echo '  \ V  V / (_| | | | (_| |  __/ | | |'
-          echo '   \_/\_/ \__,_|_|  \__,_|\___|_| |_| for Azure'
-          tput sgr0
-          echo ''
-          echo '***  Warden has been successfully installed  ***'
-          echo ''
-          echo '(Installation folder NOT deleted)'
-  fi
+  echo '(Installation folder NOT deleted)'
   echo ''
   echo 'USAGE GUIDE'
   echo ''

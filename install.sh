@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # -----------------------------------------------------------------
-# CHECK IF INSTALLED AND UPDATING EXISTING INSTALLATION
+# EXIT OUT IF ALREADY INSTALLED
 # -----------------------------------------------------------------
 
 if [ -d ~/opt/warden ]; then
@@ -9,7 +9,7 @@ if [ -d ~/opt/warden ]; then
 fi
 
 # -----------------------------------------------------------------
-# CHECK IF INSTALLED AND INSTALL WARDEN
+# INSTALL WARDEN IF NOT INSTALLED
 # -----------------------------------------------------------------
 
 if [ ! -d ~/opt/warden ]; then
@@ -47,7 +47,7 @@ if [ ! -d ~/opt/warden ]; then
   # -----------------------------------------------------------------
 
   echo ''
-  echo '***  Warden has been successfully installed  ***'
+  echo 'Warden has been successfully installed.'
   echo ''
   echo -n 'Would you like to remove installation folder? [n/y]: '
   read deletefile

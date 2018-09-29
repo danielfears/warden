@@ -8,17 +8,18 @@ Users credentials are **stored encryped** behind a password protected username t
 
 This method **bypasses the web browser login** requiremed for the Azure CLI.
 
-### Installation:
+### How to install Warden:
 
-* **cd** into /warden folder downloaded or cloned from git.
+* **cd** into the /warden folder downloaded or cloned from git.
 * Run the following command: **. install.sh**
 * Using Vagrant? Download and run installation directly on the Virtual Machine.
 
-### Updating:
+### How to update Warden:
 
-* **cd** into /warden folder downloaded or cloned from git.
-* Run the following command: **. update.sh**
-* This will keep all existing Warden profiles and update core files.
+* **cd** into the /warden folder downloaded or cloned from git.
+* Run **git pull** to download the latest version.
+* Run **. update.sh** to update core files.
+* This will preserve all existing credential profiles.
 
 ### Usage Guide:
 
@@ -28,6 +29,8 @@ This method **bypasses the web browser login** requiremed for the Azure CLI.
 * **warden remove** will remove an existing profile
 * **warden help** will display the help menu
 * **warden uninstall** will remove Warden, dependencies and all saved profiles
+
+When updating an existing credential profile, it is recommended that you remove it and add as new.
 
 ### Removal:
 

@@ -38,6 +38,6 @@ When updating an existing credential profile, it is recommended that you remove 
 
 ------
 
-Ability to update existing credentials and support for AWS is in the works, stay tuned.
+Support for AWS is in the works, so stay tuned.
 
 Authored by Daniel Fears.

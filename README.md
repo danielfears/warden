@@ -23,11 +23,22 @@ This method **bypasses the web browser login** requirement for the Azure CLI.
 
 ### Usage Guide:
 
-* **warden add** stores a new set of credentials under a username and password.
-* **warden source** will source a set of stored credentials.
-* **warden list** will show all currently stored usernames.
-* **warden remove** will remove an existing profile
-* **warden help** will display the help menu
+Commands:
+
+* **warden add** - stores a new set of credentials under a username and password.
+* **warden source** - source a set of stored credentials.
+* **warden list** - show all currently stored usernames.
+* **warden remove** - remove an existing profile
+* **warden help** - display the help menu
+
+When adding a new profile, you will be asked for the following:
+
+* ARM_SUBSCRIPTION_ID
+* ARM_CLIENT_ID
+* ARM_CLIENT_SECRET
+* ARM_TENANT_ID
+
+To exit out of a Warden command, use ctrl + c.
 
 When updating an existing credential profile, it is recommended that you remove it and add as new.
 

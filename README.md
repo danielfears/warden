@@ -23,18 +23,17 @@ This method **bypasses the web browser login** requirement for the Azure CLI.
 
 ### Usage Guide:
 
-* **warden-add** stores a new set of credentials under a username and password.
-* **warden-source** will source a set of stored credentials.
-* **warden-list** will show all currently stored usernames.
+* **warden add** stores a new set of credentials under a username and password.
+* **warden source** will source a set of stored credentials.
+* **warden list** will show all currently stored usernames.
 * **warden remove** will remove an existing profile
 * **warden help** will display the help menu
-* **warden uninstall** will remove Warden, dependencies and all saved profiles
 
 When updating an existing credential profile, it is recommended that you remove it and add as new.
 
 ### Removal:
 
-* To uninstall, run **warden-uninstall**
+* To uninstall, run **warden uninstall**
 
 ------
 

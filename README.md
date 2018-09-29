@@ -4,9 +4,9 @@ An Azure alternative to Credulous for AWS.
 
 Warden provides a **secure enclave** for the storage, encryption and loading of **Microsoft Azure** environment credentials, capable of managing multiple sets of user credentials on a single machine or compute node.
 
-Users credentials are **stored encryped** behind a password protected username that, with sucessful authentication, are **injected into the shell runtime environment**, so that they can be used by other tools like Terraform or the Azure CLI. 
+Users credentials are **stored encrypted** behind a password protected username that, with successful authentication, are **injected into the shell runtime environment**, so that they can be used by other tools like Terraform or the Azure CLI. 
 
-This method **bypasses the web browser login** requiremed for the Azure CLI.
+This method **bypasses the web browser login** requirement for the Azure CLI.
 
 ### How to install Warden:
 

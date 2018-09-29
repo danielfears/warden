@@ -39,7 +39,7 @@ if [ ! -d ~/opt/warden ]; then
   # -----------------------------------------------------------------
 
   mkdir -p ~/opt/warden/
-  mv -v assets/*.sh ~/opt/warden/
+  cp assets/*.sh ~/opt/warden/
   chmod 755 ~/opt/warden/*.sh
 
   # -----------------------------------------------------------------

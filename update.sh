@@ -17,7 +17,7 @@ if [ -d ~/opt/warden ]; then
   echo 'Warden has been updated with the latest scripts. Your saved profiles have been preserved.'
 fi
 
-if [ ~/opt/warden ]; then
+if [ ! -d ~/opt/warden ]; then
   echo 'Warden is not installed; there is nothing to update!'
   echo 'To install Warden, run ". install.sh"'
 fi

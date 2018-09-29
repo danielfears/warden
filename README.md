@@ -10,14 +10,24 @@ This method **bypasses the web browser login** requiremed for the Azure CLI.
 
 ### Installation:
 
-* To install, run **. install.sh**
-* For use with Vagrant; download and run installation directly on the Virtual Machine.
+* **cd** into /warden folder downloaded or cloned from git.
+* Run the following command: **. install.sh**
+* Using Vagrant? Download and run installation directly on the Virtual Machine.
+
+### Updating:
+
+* **cd** into /warden folder downloaded or cloned from git.
+* Run the following command: **. update.sh**
+* This will keep all existing Warden profiles and update core files.
 
 ### Usage Guide:
 
 * **warden-add** stores a new set of credentials under a username and password.
 * **warden-source** will source a set of stored credentials.
 * **warden-list** will show all currently stored usernames.
+* **warden remove** will remove an existing profile
+* **warden help** will display the help menu
+* **warden uninstall** will remove Warden, dependencies and all saved profiles
 
 ### Removal:
 

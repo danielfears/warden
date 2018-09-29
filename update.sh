@@ -14,10 +14,15 @@ if [ -d ~/opt/warden ]; then
   cp assets/*.sh ~/opt/warden/
   chmod 755 ~/opt/warden/*.sh
 
-  echo 'Warden has been updated with the latest scripts. Your saved profiles have been preserved.'
+  echo ""
+  echo 'Warden has been updated with the latest scripts.'
+  echo 'Existing Warden profiles have been migrated.'
+  echo ""
 fi
 
 if [ ! -d ~/opt/warden ]; then
+  echo ""
   echo 'Warden is not installed; there is nothing to update!'
   echo 'To install Warden, run ". install.sh"'
+  echo ""
 fi

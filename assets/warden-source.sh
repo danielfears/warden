@@ -19,7 +19,7 @@ if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then
     echo "Username not found!"
     echo ""
 else
-    gpg --output ~/opt/warden/$username-creds.sh --decrypt ~/opt/warden/$username-creds.sh.gp
+    gpg --output ~/opt/warden/$username-creds.sh.gpg --decrypt ~/opt/warden/$username-creds.sh.gpg
     wait
     source ~/opt/warden/$username-creds.sh
     wait

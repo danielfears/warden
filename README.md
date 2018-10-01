@@ -1,6 +1,6 @@
-# Warden for Linux
+# Warden
 
-An Azure alternative to Credulous for AWS.
+Azure credential management for Linux; an alternative to Credulous for AWS.
 
 Warden provides a **secure enclave** for the storage, encryption and loading of **Microsoft Azure** environment credentials, capable of managing multiple sets of user credentials on a single machine or compute node.
 

@@ -26,5 +26,5 @@ else
     rm -rf ~/opt/warden/$username-creds.sh
     clear
     echo "*** Azure credentials successfully sourced ***"
-    echo ""
+    echo " "
 fi

@@ -18,7 +18,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CREATE BASH FUNCTION IN BASH_PROFILE FOR FUNCTIONALITY
   # -----------------------------------------------------------------
 
-  mkdir -p /etc/profile.d/custom.sh
+  touch /etc/profile.d/custom.sh
 
   echo " warden () {" >> /etc/profile.d/custom.sh
   echo "   . /usr/local/bin/warden/warden-\$1.sh" >> /etc/profile.d/custom.sh

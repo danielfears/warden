@@ -18,11 +18,13 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CREATE BASH FUNCTION IN BASH_PROFILE FOR FUNCTIONALITY
   # -----------------------------------------------------------------
 
-  echo " warden () {" >> ~/.bash_profile
-  echo "   . /usr/local/bin/warden/warden-\$1.sh" >> ~/.bash_profile
-  echo " } # warden - comment for removal functionality" >> ~/.bash_profile
+  mkdir -p /etc/profile.d/custom.sh
 
-  . ~/.bash_profile
+  echo " warden () {" >> /etc/profile.d/custom.sh
+  echo "   . /usr/local/bin/warden/warden-\$1.sh" >> /etc/profile.d/custom.sh
+  echo " } # warden - comment for removal functionality" >> /etc/profile.d/custom.sh
+
+  . /etc/profile.d/custom.sh
 
   # -----------------------------------------------------------------
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE

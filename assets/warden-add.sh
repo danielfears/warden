@@ -14,12 +14,12 @@ echo ""
 echo -n "Enter a new username: "
 read username
 
-if [ -f ~/opt/warden/$username-creds.sh.gpg ]; then
+if [ -f /usr/local/bin/warden/$username-creds.sh.gpg ]; then
     echo "Username already exists!"
     echo ""
 else
-    touch ~/opt/warden/$username-creds.sh
-    chmod 755 ~/opt/warden/$username-creds.sh
+    touch /usr/local/bin/warden/$username-creds.sh
+    chmod 755 /usr/local/bin/warden/$username-creds.sh
     echo ""
     echo "Enter Azure environment credentials for: $username"
     echo ""
@@ -31,17 +31,17 @@ else
     read clientsecret
     echo -n "ARM_TENANT_ID: "
     read tenantid
-    echo "#!/bin/bash" >> ~/opt/warden/$username-creds.sh
-    echo "export ARM_SUBSCRIPTION_ID=$subid" >> ~/opt/warden/$username-creds.sh
-    echo "export ARM_CLIENT_ID=$clientid" >> ~/opt/warden/$username-creds.sh
-    echo "export ARM_CLIENT_SECRET=$clientsecret" >> ~/opt/warden/$username-creds.sh
-    echo "export ARM_TENANT_ID=$tenantid" >> ~/opt/warden/$username-creds.sh
+    echo "#!/bin/bash" >> /usr/local/bin/warden/$username-creds.sh
+    echo "export ARM_SUBSCRIPTION_ID=$subid" >> /usr/local/bin/warden/$username-creds.sh
+    echo "export ARM_CLIENT_ID=$clientid" >> /usr/local/bin/warden/$username-creds.sh
+    echo "export ARM_CLIENT_SECRET=$clientsecret" >> /usr/local/bin/warden/$username-creds.sh
+    echo "export ARM_TENANT_ID=$tenantid" >> /usr/local/bin/warden/$username-creds.sh
     clear
     echo "***  Encrypt credentials with a strong password  ***"
     sleep 1
-    gpg --output ~/opt/warden/$username-creds.sh.gpg --symmetric ~/opt/warden/$username-creds.sh
+    gpg --output /usr/local/bin/warden/$username-creds.sh.gpg --symmetric /usr/local/bin/warden/$username-creds.sh
     wait
-    rm -rf ~/opt/warden/$username-creds.sh
+    rm -rf /usr/local/bin/warden/$username-creds.sh
     clear
     echo "*** Credentials for $username successfully stored and encrypted ***"
     echo ""

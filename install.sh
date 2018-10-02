@@ -4,7 +4,7 @@
 # EXIT OUT IF ALREADY INSTALLED
 # -----------------------------------------------------------------
 
-if [ -d ~/opt/warden ]; then
+if [ -d /usr/local/bin/warden ]; then
   echo 'Warden is already installed. Please uninstall before attempting to reinstall.'
 fi
 
@@ -12,14 +12,14 @@ fi
 # INSTALL WARDEN IF NOT INSTALLED
 # -----------------------------------------------------------------
 
-if [ ! -d ~/opt/warden ]; then
+if [ ! -d /usr/local/bin/warden ]; then
 
   # -----------------------------------------------------------------
   # CREATE BASH FUNCTION IN BASH_PROFILE FOR FUNCTIONALITY
   # -----------------------------------------------------------------
 
   echo " warden () {" >> ~/.bash_profile
-  echo "   . ~/opt/warden/warden-\$1.sh" >> ~/.bash_profile
+  echo "   . /usr/local/bin/warden/warden-\$1.sh" >> ~/.bash_profile
   echo " } # warden - comment for removal functionality" >> ~/.bash_profile
 
   . ~/.bash_profile
@@ -38,9 +38,9 @@ if [ ! -d ~/opt/warden ]; then
   # CREATE INSTALLATION FOLDER, MOVE SCRIPT FILES & SET PERMISSIONS
   # -----------------------------------------------------------------
 
-  mkdir -p ~/opt/warden/
-  cp assets/*.sh ~/opt/warden/
-  chmod 755 ~/opt/warden/*.sh
+  mkdir -p /usr/local/bin/warden/
+  cp assets/*.sh /usr/local/bin/warden/
+  chmod 755 /usr/local/bin/warden/*.sh
 
   # -----------------------------------------------------------------
   # INSTALLATION MESSAGE & FILE CLEAN UP
@@ -53,7 +53,7 @@ if [ ! -d ~/opt/warden ]; then
   echo '  \ V  V / (_| | | | (_| |  __/ | | |'
   echo '   \_/\_/ \__,_|_|  \__,_|\___|_| |_| for Azure'
   tput sgr0
-  
+
   echo ''
   echo '***  Warden has been successfully installed  ***'
   echo ''

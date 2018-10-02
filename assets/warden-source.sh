@@ -14,7 +14,7 @@ echo ""
 echo -n "Enter your username: "
 read username
 
-if [ ! -f ~/opt/warden/$username-creds.sh.gpg ]; then
+if [ ! -f /usr/local/bin/warden/$username-creds.sh.gpg ]; then
     echo ""
     echo "Username not found!"
     echo ""
@@ -23,11 +23,11 @@ else
     unset ARM_CLIENT_ID
     unset ARM_CLIENT_SECRET
     unset ARM_TENANT_ID
-    gpg --output ~/opt/warden/$username-creds.sh --decrypt ~/opt/warden/$username-creds.sh.gpg
+    gpg --output /usr/local/bin/warden/$username-creds.sh --decrypt /usr/local/bin/warden/$username-creds.sh.gpg
     wait
-    source ~/opt/warden/$username-creds.sh
+    source /usr/local/bin/warden/$username-creds.sh
     wait
-    rm -rf ~/opt/warden/$username-creds.sh
+    rm -rf /usr/local/bin/warden/$username-creds.sh
     clear
     echo "*** Azure credentials successfully sourced ***"
     echo " "

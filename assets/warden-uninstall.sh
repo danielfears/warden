@@ -18,7 +18,7 @@ echo -n "Do you want to continue? [n/y]: "
 read warning
 
 if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then
-    rm -rf ~/opt/warden
+    rm -rf /usr/local/bin/warden
     sed -i -e '/warden/d' ~/.bash_profile
     rm -rf ~/.gnupg/gpg-agent.conf
     clear

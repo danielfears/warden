@@ -6,8 +6,6 @@ Warden provides a **secure enclave** for the storage, encryption and loading of 
 
 Users credentials are **stored encrypted** behind a password protected username that, with successful authentication, are **injected into the shell runtime environment**, so that they can be used by other tools like Terraform or the Azure CLI. 
 
-This method **bypasses the web browser login** requirement for the Azure CLI.
-
 ### How to install Warden:
 
 * **cd** into the /warden folder downloaded or cloned from git.

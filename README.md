@@ -8,6 +8,7 @@ Users credentials are **stored encrypted** behind a password protected username 
 
 ### How to install Warden:
 
+* git clone https://github.com/danielfears/warden.git
 * **cd** into the /warden folder downloaded or cloned from git.
 * Run the following command: **. install.sh**
 * Using Vagrant? Download and run installation directly on the Virtual Machine.

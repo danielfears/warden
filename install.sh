@@ -21,7 +21,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   touch /etc/profile.d/custom.sh
 
   sh -c "echo ' warden () {' >> /etc/profile.d/custom.sh"
-  sh -c "echo '   . /usr/local/bin/warden/warden-\$1.sh' >> /etc/profile.d/custom.sh"
+  sh -c "echo '   sudo bash /usr/local/bin/warden/warden-\$1.sh' >> /etc/profile.d/custom.sh"
   sh -c "echo ' } # warden - comment for removal functionality' >> /etc/profile.d/custom.sh"
 
   # -----------------------------------------------------------------
@@ -70,7 +70,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   echo '- "warden uninstall" Uninstalls Warden and removes all profiles'
   echo ''
   cd
-  exit
+  /sbin/shutdown -r +5 Warden installation complete - restarting
 
 fi
 

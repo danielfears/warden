@@ -18,11 +18,11 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CREATE BASH FUNCTION IN BASH_PROFILE FOR FUNCTIONALITY
   # -----------------------------------------------------------------
 
-  sudo touch /etc/profile.d/custom.sh
+  touch /etc/profile.d/custom.sh
 
-  sudo sh -c "echo ' warden () {' >> /etc/profile.d/custom.sh"
-  sudo sh -c "echo '   . /usr/local/bin/warden/warden-\$1.sh' >> /etc/profile.d/custom.sh"
-  sudo sh -c "echo ' } # warden - comment for removal functionality' >> /etc/profile.d/custom.sh"
+  sh -c "echo ' warden () {' >> /etc/profile.d/custom.sh"
+  sh -c "echo '   . /usr/local/bin/warden/warden-\$1.sh' >> /etc/profile.d/custom.sh"
+  sh -c "echo ' } # warden - comment for removal functionality' >> /etc/profile.d/custom.sh"
 
   . /etc/profile.d/custom.sh
 
@@ -30,10 +30,10 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
   # -----------------------------------------------------------------
 
-  mkdir touch ~/.gnupg && sudo touch ~/.gnupg/gpg-agent.conf
+  mkdir ~/.gnupg && sudo touch ~/.gnupg/gpg-agent.conf
   
-  sudo sh -c "echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf"
-  sudo sh -c "echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf"
+  sh -c "echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf"
+  sh -c "echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf"
 
   pkill gpg-agent
 
@@ -41,9 +41,9 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CREATE INSTALLATION FOLDER, MOVE SCRIPT FILES & SET PERMISSIONS
   # -----------------------------------------------------------------
 
-  sudo mkdir -p /usr/local/bin/warden/
-  sudo cp assets/*.sh /usr/local/bin/warden/
-  sudo chmod 755 /usr/local/bin/warden/*.sh
+  mkdir -p /usr/local/bin/warden/
+  cp assets/*.sh /usr/local/bin/warden/
+  chmod 755 /usr/local/bin/warden/*.sh
 
   # -----------------------------------------------------------------
   # INSTALLATION MESSAGE & FILE CLEAN UP

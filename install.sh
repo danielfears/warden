@@ -20,19 +20,19 @@ if [ ! -d /usr/local/bin/warden ]; then
 
   sudo touch /etc/profile.d/custom.sh
 
-  echo " warden () {" >> /etc/profile.d/custom.sh
-  echo "   . /usr/local/bin/warden/warden-\$1.sh" >> /etc/profile.d/custom.sh
-  echo " } # warden - comment for removal functionality" >> /etc/profile.d/custom.sh
+  sudo echo " warden () {" >> /etc/profile.d/custom.sh
+  sudo echo "   . /usr/local/bin/warden/warden-\$1.sh" >> /etc/profile.d/custom.sh
+  sudo echo " } # warden - comment for removal functionality" >> /etc/profile.d/custom.sh
 
-  . /etc/profile.d/custom.sh
+  sudo . /etc/profile.d/custom.sh
 
   # -----------------------------------------------------------------
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
   # -----------------------------------------------------------------
 
   sudo touch ~/.gnupg/gpg-agent.conf
-  echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
-  echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
+  sudo echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
+  sudo echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
   gpg-connect-agent /bye
   pkill gpg-agent
 

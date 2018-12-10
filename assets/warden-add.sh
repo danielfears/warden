@@ -18,8 +18,8 @@ if [ -f /usr/local/bin/warden/$username-creds.sh.gpg ]; then
     echo "Username already exists!"
     echo ""
 else
-    touch /usr/local/bin/warden/$username-creds.sh
-    chmod 755 /usr/local/bin/warden/$username-creds.sh
+    sudo touch /usr/local/bin/warden/$username-creds.sh
+    sudo chmod 755 /usr/local/bin/warden/$username-creds.sh
     echo ""
     echo "Enter Azure environment credentials for: $username"
     echo ""

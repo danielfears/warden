@@ -30,10 +30,9 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
   # -----------------------------------------------------------------
 
-  sudo touch ~/.gnupg/gpg-agent.conf
+  sudo mkdir touch ~/.gnupg && sudo touch ~/.gnupg/gpg-agent.conf
   sudo echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
   sudo echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
-  gpg-connect-agent /bye
   pkill gpg-agent
 
   # -----------------------------------------------------------------

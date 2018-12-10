@@ -15,7 +15,7 @@ fi
 if [ ! -d /usr/local/bin/warden ]; then
 
   # -----------------------------------------------------------------
-  # CREATE BASH FUNCTION IN BASH_PROFILE FOR FUNCTIONALITY
+  # CREATE AUTOCOMPLETE FUNCTION IN ETC/PROFILE.D FOR FUNCTIONALITY
   # -----------------------------------------------------------------
 
   touch /etc/profile.d/custom.sh
@@ -23,8 +23,6 @@ if [ ! -d /usr/local/bin/warden ]; then
   sh -c "echo ' warden () {' >> /etc/profile.d/custom.sh"
   sh -c "echo '   . /usr/local/bin/warden/warden-\$1.sh' >> /etc/profile.d/custom.sh"
   sh -c "echo ' } # warden - comment for removal functionality' >> /etc/profile.d/custom.sh"
-
-  sh /etc/profile.d/custom.sh
 
   # -----------------------------------------------------------------
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
@@ -72,6 +70,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   echo '- "warden uninstall" Uninstalls Warden and removes all profiles'
   echo ''
   cd
+  exit
 
 fi
 

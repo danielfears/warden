@@ -70,7 +70,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   echo '- "warden uninstall" Uninstalls Warden and removes all profiles'
   echo ''
   cd
-  /sbin/shutdown -r +5 Warden installation complete - restarting
+  /sbin/shutdown -r Warden installation complete - restarting
 
 fi
 

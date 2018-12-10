@@ -73,4 +73,8 @@ if [ ! -d /usr/local/bin/warden ]; then
   echo ''
   cd
 
+  . /etc/profile.d/custom.sh
+
 fi
+
+. /etc/profile.d/custom.sh

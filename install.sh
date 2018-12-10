@@ -24,7 +24,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   sh -c "echo '   . /usr/local/bin/warden/warden-\$1.sh' >> /etc/profile.d/custom.sh"
   sh -c "echo ' } # warden - comment for removal functionality' >> /etc/profile.d/custom.sh"
 
-  . /etc/profile.d/custom.sh
+  sh /etc/profile.d/custom.sh
 
   # -----------------------------------------------------------------
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
@@ -73,8 +73,6 @@ if [ ! -d /usr/local/bin/warden ]; then
   echo ''
   cd
 
-  . /etc/profile.d/custom.sh
-
 fi
 
-. /etc/profile.d/custom.sh
+

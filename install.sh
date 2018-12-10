@@ -18,7 +18,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CREATE BASH FUNCTION IN BASH_PROFILE FOR FUNCTIONALITY
   # -----------------------------------------------------------------
 
-  touch /etc/profile.d/custom.sh
+  sudo touch /etc/profile.d/custom.sh
 
   echo " warden () {" >> /etc/profile.d/custom.sh
   echo "   . /usr/local/bin/warden/warden-\$1.sh" >> /etc/profile.d/custom.sh
@@ -30,7 +30,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
   # -----------------------------------------------------------------
 
-  touch ~/.gnupg/gpg-agent.conf
+  sudo touch ~/.gnupg/gpg-agent.conf
   echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
   echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
   gpg-connect-agent /bye
@@ -40,9 +40,9 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CREATE INSTALLATION FOLDER, MOVE SCRIPT FILES & SET PERMISSIONS
   # -----------------------------------------------------------------
 
-  mkdir -p /usr/local/bin/warden/
-  cp assets/*.sh /usr/local/bin/warden/
-  chmod 755 /usr/local/bin/warden/*.sh
+  sudo mkdir -p /usr/local/bin/warden/
+  sudo cp assets/*.sh /usr/local/bin/warden/
+  sudo chmod 755 /usr/local/bin/warden/*.sh
 
   # -----------------------------------------------------------------
   # INSTALLATION MESSAGE & FILE CLEAN UP

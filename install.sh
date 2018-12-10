@@ -24,7 +24,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   sudo echo "   . /usr/local/bin/warden/warden-\$1.sh" >> /etc/profile.d/custom.sh
   sudo echo " } # warden - comment for removal functionality" >> /etc/profile.d/custom.sh
 
-  sudo . /etc/profile.d/custom.sh
+  . /etc/profile.d/custom.sh
 
   # -----------------------------------------------------------------
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE

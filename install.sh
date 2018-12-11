@@ -70,7 +70,10 @@ if [ ! -d /usr/local/bin/warden ]; then
   echo '- "warden uninstall" Uninstalls Warden and removes all profiles'
   echo ''
 
-  source /etc/profile.d/custom.sh
+  
+  sudo sh -c "echo 'source /etc/profile.d/custom.sh' >> ~/.bashrc"
+
+  . ~/.bashrc
 
 fi
 

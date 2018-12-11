@@ -23,7 +23,6 @@ if [ ! -d /usr/local/bin/warden ]; then
   sudo sh -c "echo ' warden () {' >> /etc/profile.d/custom.sh"
   sudo sh -c "echo '   sudo bash /usr/local/bin/warden/warden-\$1.sh' >> /etc/profile.d/custom.sh"
   sudo sh -c "echo ' } # warden - comment for removal functionality' >> /etc/profile.d/custom.sh"
-  . /etc/profile.d/custom.sh
 
   # -----------------------------------------------------------------
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
@@ -70,6 +69,8 @@ if [ ! -d /usr/local/bin/warden ]; then
   echo '- "warden help" displays the help menu'
   echo '- "warden uninstall" Uninstalls Warden and removes all profiles'
   echo ''
+
+  source /etc/profile.d/custom.sh
 
 fi
 

@@ -71,7 +71,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   echo ''
 
   
-  sudo sh -c "echo 'source /etc/profile.d/custom.sh' >> ~/.bashrc"
+  sudo sh -c "echo 'source /etc/profile.d/custom.sh' >> ~/.bashrc" &&
 
   . ~/.bashrc
 

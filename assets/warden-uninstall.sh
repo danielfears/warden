@@ -22,7 +22,15 @@ if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then
     sudo rm -rf ~/wardencreds
     sudo sed -i -e '/warden/d' ~/.bash_profile
     sudo rm -rf ~/.gnupg/
-    unalias -a
+
+    unalias warden-add
+    unalias warden-help
+    unalias warden-list
+    unalias warden-remove
+    unalias warden-source
+    unalias warden-uninstall
+
+
     clear
     echo "(Removed Warden folder & credentials)"
     echo "(Removed GPG settings file)"

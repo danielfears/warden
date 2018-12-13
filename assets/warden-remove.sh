@@ -15,7 +15,7 @@ echo -n "Enter a username: "
 read username
 echo ""
 
-if [ ! -f /usr/local/bin/warden/$username-creds.sh.gpg ]; then
+if [ ! -f ~/wardencreds/$username-creds.sh.gpg ]; then
     echo ""
     echo "Username not found!"
     echo ""
@@ -26,7 +26,7 @@ else
     if [[ $removeuser == "Y" || $removeuser == "y" || $removeuser == "yes" ]]; then
         echo "Profile for $username has been removed from Warden"
         echo ""
-        sudo rm -rf /usr/local/bin/warden/$username-creds.sh.gpg
+        sudo rm -rf ~/wardencreds/$username-creds.sh.gpg
     else
         echo "Profile for $username NOT removed"
         echo ""

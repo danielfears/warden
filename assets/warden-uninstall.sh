@@ -19,6 +19,7 @@ read warning
 
 if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then
     sudo rm -rf /usr/local/bin/warden
+    sudo rm -rf ~/wardencreds
     sudo sed -i -e '/warden/d' ~/.bash_profile
     sudo rm -rf ~/.gnupg/
     unalias -a

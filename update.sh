@@ -26,27 +26,27 @@ if [ -d /usr/local/bin/warden ]; then
 
   # Ubuntu installation support
   if [ -e ~/.bashrc ] && [ ! -e ~/.bash_profile ]; then
-    bash = bashrc
+    foo="bashrc"
   fi
 
   # CentOS installation support
   if [ -e ~/.bashrc ] && [ -e ~/.bash_profile ]; then
-    bash = bashrc
-  fi
-  
-  # MacOS installation support
-  if [ -e ~/.bash_profile ] && [ ! -e ~/.bashrc ]; then
-    bash = bash_profile
+    foo="bashrc"
   fi
 
-  echo 'alias warden-add="sudo sh ~/opt/warden/warden-add.sh"' >> ~/.$bash
-  echo 'alias warden-help="sudo sh ~/opt/warden/warden-help.sh"' >> ~/.$bash
-  echo 'alias warden-list="sudo sh ~/opt/warden/warden-list.sh"' >> ~/.$bash
-  echo 'alias warden-remove="sudo sh ~/opt/warden/warden-remove.sh"' >> ~/.$bash
-  echo 'alias warden-source="sudo sh ~/opt/warden/warden-source.sh"' >> ~/.$bash
-  echo 'alias warden-uninstall="sudo sh ~/opt/warden/warden-uninstall.sh"' >> ~/.$bash
+  # MacOS installation support
+  if [ -e ~/.bash_profile ] && [ ! -e ~/.bashrc ]; then
+    foo="bash_profile"
+  fi
+
+  echo 'alias warden-add="sudo sh ~/opt/warden/warden-add.sh"' >> ~/.$foo
+  echo 'alias warden-help="sudo sh ~/opt/warden/warden-help.sh"' >> ~/.$foo
+  echo 'alias warden-list="sudo sh ~/opt/warden/warden-list.sh"' >> ~/.$foo
+  echo 'alias warden-remove="sudo sh ~/opt/warden/warden-remove.sh"' >> ~/.$foo
+  echo 'alias warden-source="sudo sh ~/opt/warden/warden-source.sh"' >> ~/.$foo
+  echo 'alias warden-uninstall="sudo sh ~/opt/warden/warden-uninstall.sh"' >> ~/.$foo
   
-  . ~/.$bash
+  . ~/.$foo
 
   echo ""
   echo 'Warden has been updated to the latest version'

@@ -1,12 +1,5 @@
 #!/bin/bash
 
-feature=("add" "help" "list" "remove" "source" "uninstall")
-
-for i in "${feature[@]}"
-do
-    echo $i
-done
-
 # -----------------------------------------------------------------
 # EXIT OUT IF ALREADY INSTALLED
 # -----------------------------------------------------------------
@@ -33,7 +26,7 @@ if [ ! -d /usr/local/bin/warden ]; then
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
   # -----------------------------------------------------------------
 
-  sudo mkdir ~/.gnupg && touch ~/.gnupg/gpg-agent.conf && chmod 755 ~/.gnupg/gpg-agent.conf
+  sudo mkdir ~/.gnupg && sudo touch ~/.gnupg/gpg-agent.conf && sudo chmod 755 ~/.gnupg/gpg-agent.conf
   
   sudo echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
   sudo echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf

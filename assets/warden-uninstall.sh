@@ -21,10 +21,11 @@ if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then
     rm -rf /usr/local/bin/warden
     sed -i -e '/warden/d' ~/.bash_profile
     rm -rf ~/.gnupg/gpg-agent.conf
+    unalias -a
     clear
     echo "(Removed Warden folder & credentials)"
     echo "(Removed GPG settings file)"
-    echo "(Removed Warden function entry from .bash_profile)"
+    echo "(Removed Warden function entry from .bash_profile / .bashrc)"
     echo ""
     echo "***  Warden has been uninstalled and all credentials removed  ***"
     echo ""

@@ -1,5 +1,12 @@
 #!/bin/bash
 
+feature=("add" "help" "list" "remove" "source" "uninstall")
+
+for i in "${feature[@]}"
+do
+    echo $i
+done
+
 # -----------------------------------------------------------------
 # EXIT OUT IF ALREADY INSTALLED
 # -----------------------------------------------------------------
@@ -15,23 +22,21 @@ fi
 if [ ! -d /usr/local/bin/warden ]; then
 
   # -----------------------------------------------------------------
-  # CREATE AUTOCOMPLETE FUNCTION IN ETC/PROFILE.D FOR FUNCTIONALITY
+  # POPULATE ALIAS LIST FOR USER COMMANDS FROM ALIAS FILE
   # -----------------------------------------------------------------
 
-  sudo touch /etc/profile.d/custom.sh
+  sh ./assets/alias.sh
 
-  sudo sh -c "echo ' warden () {' >> /etc/profile.d/custom.sh"
-  sudo sh -c "echo '   sudo bash /usr/local/bin/warden/warden-\$1.sh' >> /etc/profile.d/custom.sh"
-  sudo sh -c "echo ' } # warden - comment for removal functionality' >> /etc/profile.d/custom.sh"
+  # touch /etc/profile.d/warden.sh # multi-user post-install support/later feature
 
   # -----------------------------------------------------------------
   # CONFIGURE GPG TO ALWAYS ASK FOR PASSWORD AND RESTART SERVICE
   # -----------------------------------------------------------------
 
-  mkdir ~/.gnupg && sudo touch ~/.gnupg/gpg-agent.conf
+  sudo mkdir ~/.gnupg && touch ~/.gnupg/gpg-agent.conf && chmod 755 ~/.gnupg/gpg-agent.conf
   
-  sudo sh -c "echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf"
-  sudo sh -c "echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf"
+  sudo echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
+  sudo echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
 
   pkill gpg-agent
 
@@ -69,11 +74,6 @@ if [ ! -d /usr/local/bin/warden ]; then
   echo '- "warden help" displays the help menu'
   echo '- "warden uninstall" Uninstalls Warden and removes all profiles'
   echo ''
-
-  
-  sudo sh -c "echo 'source /etc/profile.d/custom.sh' >> ~/.bashrc" &&
-
-  . ~/.bashrc
 
 fi
 

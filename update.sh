@@ -14,6 +14,18 @@ if [ -d /usr/local/bin/warden ]; then
   cp assets/*.sh /usr/local/bin/warden/
   chmod 755 /usr/local/bin/warden/*.sh
 
+  # Update alias commands
+
+  # unalias warden-add
+  # unalias warden-help
+  # unalias warden-list
+  # unalias warden-remove
+  # unalias warden-source
+  # unalias warden-uninstall
+  
+  unalias -a
+  sh ./assets/alias.sh
+
   echo ""
   echo 'Warden has been updated to the latest version'
   echo 'Existing Warden profiles have been migrated'

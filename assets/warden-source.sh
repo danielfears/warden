@@ -23,7 +23,7 @@ else
     unset ARM_CLIENT_ID
     unset ARM_CLIENT_SECRET
     unset ARM_TENANT_ID
-    gpg --output ~/wardencreds/$username-creds.sh --decrypt ~/wardencreds/$username-creds.sh.gpg
+    sudo gpg --output ~/wardencreds/$username-creds.sh --decrypt ~/wardencreds/$username-creds.sh.gpg
     wait
     source ~/wardencreds/$username-creds.sh
     wait

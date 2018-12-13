@@ -39,7 +39,7 @@ else
     clear
     echo "***  Encrypt credentials with a strong password  ***"
     sleep 1
-    gpg --output ~/wardencreds/$username-creds.sh.gpg --symmetric ~/wardencreds/$username-creds.sh
+    sudo gpg --output ~/wardencreds/$username-creds.sh.gpg --symmetric ~/wardencreds/$username-creds.sh
     wait
     rm -rf ~/wardencreds/$username-creds.sh
     clear

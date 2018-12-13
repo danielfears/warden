@@ -18,8 +18,8 @@ if [ -f /usr/local/bin/warden/$username-creds.sh.gpg ]; then
     echo "Username already exists!"
     echo ""
 else
-    touch /usr/local/bin/warden/$username-creds.sh
-    chmod 755 /usr/local/bin/warden/$username-creds.sh
+    sudo touch /usr/local/bin/warden/$username-creds.sh
+    sudo chmod 755 /usr/local/bin/warden/$username-creds.sh
     echo ""
     echo "Enter Azure environment credentials for: $username"
     echo ""
@@ -39,9 +39,9 @@ else
     clear
     echo "***  Encrypt credentials with a strong password  ***"
     sleep 1
-    gpg --output /usr/local/bin/warden/$username-creds.sh.gpg --symmetric /usr/local/bin/warden/$username-creds.sh
+    sudo gpg --output /usr/local/bin/warden/$username-creds.sh.gpg --symmetric /usr/local/bin/warden/$username-creds.sh
     wait
-    rm -rf /usr/local/bin/warden/$username-creds.sh
+    sudo rm -rf /usr/local/bin/warden/$username-creds.sh
     clear
     echo "*** Credentials for $username successfully stored and encrypted ***"
     echo ""

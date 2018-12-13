@@ -26,7 +26,7 @@ else
     if [[ $removeuser == "Y" || $removeuser == "y" || $removeuser == "yes" ]]; then
         echo "Profile for $username has been removed from Warden"
         echo ""
-        rm -rf /usr/local/bin/warden/$username-creds.sh.gpg
+        sudo rm -rf /usr/local/bin/warden/$username-creds.sh.gpg
     else
         echo "Profile for $username NOT removed"
         echo ""

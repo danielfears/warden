@@ -21,12 +21,12 @@ if [ ! -d /usr/local/bin/warden ]; then
   # Ubuntu installation support
   if [ -e ~/.bashrc ] && [ ! -e ~/.bash_profile ]; then
 
-    echo 'alias warden-add="sudo sh ~/opt/warden/warden-add.sh"' >> ~/.bashrc
-    echo 'alias warden-help="sudo sh ~/opt/warden/warden-help.sh"' >> ~/.bashrc
-    echo 'alias warden-list="sudo sh ~/opt/warden/warden-list.sh"' >> ~/.bashrc
-    echo 'alias warden-remove="sudo sh ~/opt/warden/warden-remove.sh"' >> ~/.bashrc
-    echo 'alias warden-source="sudo sh ~/opt/warden/warden-source.sh"' >> ~/.bashrc
-    echo 'alias warden-uninstall="sudo sh ~/opt/warden/warden-uninstall.sh"' >> ~/.bashrc
+    echo 'alias warden-add=". ~/opt/warden/warden-add.sh"' >> ~/.bashrc
+    echo 'alias warden-help=". ~/opt/warden/warden-help.sh"' >> ~/.bashrc
+    echo 'alias warden-list=". ~/opt/warden/warden-list.sh"' >> ~/.bashrc
+    echo 'alias warden-remove=". ~/opt/warden/warden-remove.sh"' >> ~/.bashrc
+    echo 'alias warden-source=". ~/opt/warden/warden-source.sh"' >> ~/.bashrc
+    echo 'alias warden-uninstall=". ~/opt/warden/warden-uninstall.sh"' >> ~/.bashrc
     
     . ~/.bashrc
 

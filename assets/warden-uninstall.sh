@@ -18,9 +18,9 @@ echo -n "Do you want to continue? [n/y]: "
 read warning
 
 if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then
-    rm -rf /usr/local/bin/warden
-    sed -i -e '/warden/d' ~/.bash_profile
-    rm -rf ~/.gnupg/gpg-agent.conf
+    sudo rm -rf /usr/local/bin/warden
+    sudo sed -i -e '/warden/d' ~/.bash_profile
+    sudo rm -rf ~/.gnupg/
     unalias -a
     clear
     echo "(Removed Warden folder & credentials)"

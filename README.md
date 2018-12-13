@@ -6,16 +6,17 @@ Warden provides a **secure enclave** for the storage, encryption and loading of 
 
 Users credentials are **stored encrypted** behind a password protected username that, with successful authentication, are **injected into the shell runtime environment**, so that they can be used by other tools like Terraform. 
 
-### How to install Warden:
+### Installation:
+
+Using Vagrant? Clone directly onto the Virtual Machine.
 
 * git clone https://github.com/danielfears/warden.git
-* **cd** into the /warden folder downloaded or cloned from git.
+* **cd** into /warden folder cloned from git.
 * Run the following command: **. install.sh**
-* Using Vagrant? Download and run installation directly on the Virtual Machine.
 
-### How to update Warden:
+### Updating:
 
-* **cd** into the /warden folder downloaded or cloned from git.
+* **cd** into the /warden folder cloned from git.
 * Run **git pull** to download the latest version.
 * Run **. update.sh** to update core files.
 * This will preserve all existing credential profiles.
@@ -24,11 +25,11 @@ Users credentials are **stored encrypted** behind a password protected username 
 
 Commands:
 
-* **warden add** - stores a new set of credentials under a username and password.
-* **warden source** - source a set of stored credentials.
-* **warden list** - show all currently stored usernames.
-* **warden remove** - remove an existing profile
-* **warden help** - display the help menu
+* **warden-add** - stores a new set of credentials under a username and password.
+* **warden-source** - source a set of stored credentials.
+* **warden-list** - show all currently stored usernames.
+* **warden-remove** - remove an existing profile
+* **warden-help** - display the help menu
 
 When adding a new profile, you will be asked for the following:
 
@@ -39,11 +40,11 @@ When adding a new profile, you will be asked for the following:
 
 To exit out of a Warden command, use ctrl + c.
 
-When updating an existing credential profile, it is recommended that you remove it and add as new.
+To update a credential profile, remove the existing one and add as new.
 
-### Removal:
+### Uninstall:
 
-* To uninstall, run **warden uninstall**
+* To uninstall, run **warden-uninstall**
 
 ------
 

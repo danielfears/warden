@@ -27,9 +27,9 @@ if [ ! -d /usr/local/bin/warden ]; then
   # -----------------------------------------------------------------
 
   sudo mkdir ~/.gnupg && sudo touch ~/.gnupg/gpg-agent.conf && sudo chmod 755 ~/.gnupg/gpg-agent.conf
-  
-  sudo echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
-  sudo echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf
+
+  sudo sh -c "echo 'default-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf"
+  sudo sh -c "echo 'max-cache-ttl 0' >> ~/.gnupg/gpg-agent.conf"
 
   pkill gpg-agent
 

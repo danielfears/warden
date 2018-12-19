@@ -32,11 +32,3 @@ else
     echo "*** Azure credentials successfully sourced ***"
     echo " "
 fi
-
-
-
-sudo gpg --output ~/wardencreds/test-creds.sh --decrypt ~/wardencreds/test-creds.sh.gpg
-
-source ~/wardencreds/test-creds.sh
-
-rm -rf ~/wardencreds/test-creds.sh

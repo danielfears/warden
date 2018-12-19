@@ -20,7 +20,22 @@ read warning
 if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then
     sudo rm -rf /usr/local/bin/warden
     sudo rm -rf ~/wardencreds
-    sudo sed -i -e '/warden/d' ~/.bash_profile
+
+    # Ubuntu installation support
+    if [ -e ~/.bashrc ] && [ ! -e ~/.bash_profile ]; then
+        sudo sed -i -e '/warden/d' ~/.bashrc
+    fi
+
+    # CentOS installation support
+    if [ -e ~/.bashrc ] && [ -e ~/.bash_profile ]; then
+        sudo sed -i -e '/warden/d' ~/.bashrc
+    fi
+
+    # MacOS installation support
+    if [ -e ~/.bash_profile ] && [ ! -e ~/.bashrc ]; then
+        sudo sed -i -e '/warden/d' ~/.bash_profile
+    fi
+
     sudo rm -rf ~/.gnupg/
 
     unalias warden-add
@@ -30,8 +45,8 @@ if [[ $warning == "Y" || $warning == "y" || $warning == "yes" ]]; then
     unalias warden-source
     unalias warden-uninstall
 
-
     clear
+
     echo "(Removed Warden folder & credentials)"
     echo "(Removed GPG settings file)"
     echo "(Removed Warden function entry from .bash_profile / .bashrc)"

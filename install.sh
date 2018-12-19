@@ -33,12 +33,12 @@ if [ ! -d /usr/local/bin/warden ]; then
     foo="bash_profile"
   fi
 
-  echo 'alias warden-add="sudo sh ~/opt/warden/warden-add.sh"' >> ~/.$foo
-  echo 'alias warden-help="sudo sh ~/opt/warden/warden-help.sh"' >> ~/.$foo
-  echo 'alias warden-list="sudo sh ~/opt/warden/warden-list.sh"' >> ~/.$foo
-  echo 'alias warden-remove="sudo sh ~/opt/warden/warden-remove.sh"' >> ~/.$foo
-  echo 'alias warden-source="sudo sh ~/opt/warden/warden-source.sh"' >> ~/.$foo
-  echo 'alias warden-uninstall="sudo sh ~/opt/warden/warden-uninstall.sh"' >> ~/.$foo
+  echo 'alias warden-add="sudo sh /usr/local/bin/warden/warden-add.sh"' >> ~/.$foo
+  echo 'alias warden-help="sudo sh /usr/local/bin/warden/warden-help.sh"' >> ~/.$foo
+  echo 'alias warden-list="sudo sh /usr/local/bin/warden/warden-list.sh"' >> ~/.$foo
+  echo 'alias warden-remove="sudo sh /usr/local/bin/warden/warden-remove.sh"' >> ~/.$foo
+  echo 'alias warden-source="sudo sh /usr/local/bin/warden/warden-source.sh"' >> ~/.$foo
+  echo 'alias warden-uninstall="sudo sh /usr/local/bin/warden/warden-uninstall.sh"' >> ~/.$foo
   
   . ~/.$foo
 

@@ -33,6 +33,10 @@ if [ ! -d /usr/local/bin/warden ]; then
     foo="bash_profile"
   fi
 
+  # zsh support
+  if [ -e ~/.zshrc ]; then
+    foo="zshrc"
+  fi
   echo 'alias warden-add=". /usr/local/bin/warden/warden-add.sh"' >> ~/.$foo
   echo 'alias warden-help=". /usr/local/bin/warden/warden-help.sh"' >> ~/.$foo
   echo 'alias warden-list=". /usr/local/bin/warden/warden-list.sh"' >> ~/.$foo
